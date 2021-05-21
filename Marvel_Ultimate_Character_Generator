@@ -10,18 +10,117 @@ char_power_class = []
 power = []
 character_powers = []
 
+#Generating Physical Form
+physical_form_outcomes = {}
+for i in range(1, 26):
+    physical_form_outcomes[i] = 'Normal Human'
+for i in range(26, 31):
+    physical_form_outcomes[i] = 'Mutant - Induced'
+for i in range(31, 34):
+    physical_form_outcomes[i] = 'Mutant - Random'
+for i in range(34, 36):
+    physical_form_outcomes[i] = 'Mutant - Breed'
+for i in range(36, 39):
+    physical_form_outcomes[i] = 'Android'
+for i in range(39, 47):
+    physical_form_outcomes[i] = 'Humanoid Race'
+for i in range(47, 48):
+    physical_form_outcomes[i] = 'Surgical Composite'
+for i in range(48, 50):
+    physical_form_outcomes[i] = 'Modified Human - Organic'
+for i in range(50, 52):
+    physical_form_outcomes[i] = 'Modified Human - Muscular'
+for i in range(52, 54):
+    physical_form_outcomes[i] = 'Modified Human - Skeletal'
+for i in range(54, 58):
+    physical_form_outcomes[i] = 'Modified Human - Extra Parts'
+for i in range(58, 59):
+    physical_form_outcomes[i] = 'Demihuman - Centaur'
+for i in range(59, 60):
+    physical_form_outcomes[i] = 'Demihuman - Equiman'
+for i in range(60, 61):
+    physical_form_outcomes[i] = 'Demihuman - Faun'
+for i in range(61, 63):
+    physical_form_outcomes[i] = 'Demihuman - Felinoid'
+for i in range(63, 65):
+    physical_form_outcomes[i] = 'Demihuman - Lupinoid'
+for i in range(65, 67):
+    physical_form_outcomes[i] = 'Demihuman - Avian'
+for i in range(67, 68):
+    physical_form_outcomes[i] = 'Demihuman - Chiropteran'
+for i in range(68, 69):
+    physical_form_outcomes[i] = 'Demihuman - Lamian'
+for i in range(69, 70):
+    physical_form_outcomes[i] = 'Demihuman - Merhuman'
+for i in range(70, 71):
+    physical_form_outcomes[i] = 'Demihuman - Other'
+for i in range(71, 73):
+    physical_form_outcomes[i] = 'Cyborg - Artifical Limbs and Organs'
+for i in range(73, 75):
+    physical_form_outcomes[i] = 'Cyborg - Exoskeleton'
+for i in range(75, 77):
+    physical_form_outcomes[i] = 'Cyborg - Mechanical Body'
+for i in range(77, 80):
+    physical_form_outcomes[i] = 'Cyborg - Mechanically Augmented'
+for i in range(80, 83):
+    physical_form_outcomes[i] = 'Robot - Human Shape'
+for i in range(83, 85):
+    physical_form_outcomes[i] = 'Robot - Usuform'
+for i in range(85, 87):
+    physical_form_outcomes[i] = 'Robot - Metamorphic'
+for i in range(87, 88):
+    physical_form_outcomes[i] = 'Robot - Computer'
+for i in range(88, 89):
+    physical_form_outcomes[i] = 'Angel or Demon'
+for i in range(89, 90):
+    physical_form_outcomes[i] = 'Deity'
+for i in range(90, 91):
+    physical_form_outcomes[i] = 'Animal'
+for i in range(91, 92):
+    physical_form_outcomes[i] = 'Vegetable'
+for i in range(92, 93):
+    physical_form_outcomes[i] = 'Abnormal Chemistry'
+for i in range(93, 94):
+    physical_form_outcomes[i] = 'Mineral'
+for i in range(94, 95):
+    physical_form_outcomes[i] = 'Gaseous'
+for i in range(95, 96):
+    physical_form_outcomes[i] = 'Liquid'
+for i in range(96, 97):
+    physical_form_outcomes[i] = 'Energy'
+for i in range(97, 98):
+    physical_form_outcomes[i] = 'Ethereal'
+for i in range(98, 99):
+    physical_form_outcomes[i] = 'Undead'
+for i in range(99, 100):
+    physical_form_outcomes[i] = 'Compound'
+for i in range(100, 101):
+    physical_form_outcomes[i] = 'Changeling'
+
 #Generating Origins
 origin_outcomes = {}
-for i in range(1, 31):
-    origin_outcomes[i] = 'Altered Human'
-for i in range(31, 61):
-    origin_outcomes[i] = 'Mutant'
-for i in range(61, 91):
-    origin_outcomes[i] = 'Hi-Tech'
-for i in range(91, 96):
-    origin_outcomes[i] = 'Robot'
-for i in range(96, 101):
-    origin_outcomes[i] = 'Alien'
+for i in range(1, 11):
+    origin_outcomes[i] = 'Natal'
+for i in range(11, 21):
+    origin_outcomes[i] = 'Maturity'
+for i in range(21, 31):
+    origin_outcomes[i] = 'Self-Achievement'
+for i in range(31, 36):
+    origin_outcomes[i] = 'Endowment'
+for i in range(36, 51):
+    origin_outcomes[i] = 'Technical Mishap'
+for i in range(51, 61):
+    origin_outcomes[i] = 'Technical Procedure'
+for i in range(61, 66):
+    origin_outcomes[i] = 'Creation'
+for i in range(66, 77):
+    origin_outcomes[i] = 'Biological Exposure'
+for i in range(77, 88):
+    origin_outcomes[i] = 'Chemical Exposure'
+for i in range(88, 99):
+    origin_outcomes[i] = 'Energy Exposure'
+for i in range(99, 101):
+    origin_outcomes[i] = 'Rebirth'
 
 #Powers counter
 powers_outcomes = {}
@@ -74,6 +173,19 @@ for i in range(81, 97):
     faserip_rank1_outcomes[i] = 'Incredible'
 for i in range(97, 101):
     faserip_rank1_outcomes[i] = 'Amazing'
+
+#Generating FASERIP_Rank2 (Normal Folk)
+faserip_rank2_outcomes = {}
+for i in range(1, 6):
+    faserip_rank2_outcomes[i] = 'Feeble'
+for i in range(6, 26):
+    faserip_rank2_outcomes[i] = 'Poor'
+for i in range(26, 76):
+    faserip_rank2_outcomes[i] = 'Typical'
+for i in range(76, 96):
+    faserip_rank2_outcomes[i] = 'Good'
+for i in range(96, 101):
+    faserip_rank2_outcomes[i] = 'Excellent'
 
 #Generating FASERIP_Rank3 (High Technology)
 faserip_rank3_outcomes = {}
@@ -721,6 +833,11 @@ for i in range(94, 98):
 for i in range(98, 101):
     power_category_travel_outcomes[i] = 'Whirlwind'
 
+def get_physical_form(roll):
+    if roll not in physical_form_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return physical_form_outcomes[roll]
+
 def get_origin(roll):
     if roll not in origin_outcomes.keys():
         raise ValueError('Unsupported roll: {}'.format(roll))
@@ -730,6 +847,11 @@ def get_faserip_rank1(roll):
     if roll not in faserip_rank1_outcomes.keys():
         raise ValueError('Unsupported roll: {}'.format(roll))
     return faserip_rank1_outcomes[roll]
+
+def get_faserip_rank2(roll):
+    if roll not in faserip_rank2_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return faserip_rank2_outcomes[roll]
 
 def get_faserip_rank3(roll):
     if roll not in faserip_rank3_outcomes.keys():
@@ -801,7 +923,7 @@ def get_power_category_illusory_power(roll):
         raise ValueError('Unsupported roll: {}'.format(roll))
     return power_category_illusory_power_outcomes[roll]
 
-def get_power_category_lifeform_control(roll):
+def get_power_category_lifeform_contol(roll):
     if roll not in power_category_lifeform_control_outcomes.keys():
         raise ValueError('Unsupported roll: {}'.format(roll))
     return power_category_lifeform_control_outcomes[roll]
@@ -853,7 +975,8 @@ def get_power_category_travel(roll):
 
 def print_stats():
     print('')
-    print('Origin: ' + char_origin)
+    print('Physical Form: ' + (char_physical_form))
+    print('Power Origin: ' + char_origin)
     print('')
     print('Primary Abilities:')
     print('------------------')
@@ -895,28 +1018,174 @@ initial_rank_numbers = {
     'Monstrous': 63
      }
 
+physical_form_roll = random.randint(1, 100)
+char_physical_form = get_physical_form(physical_form_roll)
 origin_roll = random.randint(1, 100)
 char_origin = get_origin(origin_roll)
 
 #FASERIP counter
 for counter in range(1,8):
-    if char_origin == 'Altered Human':
+    if char_physical_form == 'Normal Human':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank2(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Mutant - Induced':
         faserip_roll = random.randint(1, 100)
         char_faserip = get_faserip_rank1(faserip_roll)
         char_stats.append(char_faserip)
-    elif char_origin == 'Mutant':
+    elif char_physical_form == 'Mutant - Random':
         faserip_roll = random.randint(1, 100)
         char_faserip = get_faserip_rank1(faserip_roll)
         char_stats.append(char_faserip)
-    elif char_origin == 'Hi-Tech':
+    elif char_physical_form == 'Mutant - Breed':
         faserip_roll = random.randint(1, 100)
-        char_faserip = get_faserip_rank3(faserip_roll)
+        char_faserip = get_faserip_rank1(faserip_roll)
         char_stats.append(char_faserip)
-    elif char_origin == 'Robot':
+    elif char_physical_form == 'Android':
         faserip_roll = random.randint(1, 100)
         char_faserip = get_faserip_rank4(faserip_roll)
         char_stats.append(char_faserip)
-    elif char_origin == 'Alien':
+    elif char_physical_form == 'Humanoid Race':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank5(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Surgical Composite':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank2(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Modified Human - Organic':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank2(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Modified Human - Muscular':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank2(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Modified Human - Skeletal':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank2(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Modified Human - Extra Parts':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank2(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Demihuman - Centaur':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank2(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'DDemihuman - Equiman':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank2(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Demihuman - Faun':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank2(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Demihuman - Felinoid':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank2(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Demihuman - Lupinoid':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank2(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Demihuman - Avian':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank2(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Demihuman - Chiropteran':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank2(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Demihuman - Lamian':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank2(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Demihuman - Merhuman':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank2(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Demihuman - Other':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank2(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Cyborg - Artifical Limbs and Organs':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank2(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Cyborg - Exoskeleton':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank2(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Cyborg - Mechanical Body':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank4(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Cyborg - Mechanically Augmented':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank3(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Robot - Human Shape':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank4(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Robot - Usuform':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank4(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Robot - Metamorphic':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank4(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Robot - Computer':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank4(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Deity':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank2(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Animal':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank1(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Vegetable':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank1(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Abnormal Chemistry':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank2(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Mineral':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank2(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Gaseous':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank5(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Liquid':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank5(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Energy':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank5(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Ethereal':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank1(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Undead':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank1(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Compound':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank5(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_physical_form == 'Changeling':
         faserip_roll = random.randint(1, 100)
         char_faserip = get_faserip_rank5(faserip_roll)
         char_stats.append(char_faserip)
