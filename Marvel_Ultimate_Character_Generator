@@ -1,0 +1,1078 @@
+#Subject:  Marvel Super Heroes Player's Book Character Generator
+#Author:   Palvaran
+#Website:  ideasquantified.com
+#Inspiration:  https://en.wikipedia.org/wiki/Marvel_Super_Heroes_(role-playing_game)
+
+import random, time
+
+char_stats = []
+char_power_class = []
+power = []
+character_powers = []
+
+#Generating Origins
+origin_outcomes = {}
+for i in range(1, 31):
+    origin_outcomes[i] = 'Altered Human'
+for i in range(31, 61):
+    origin_outcomes[i] = 'Mutant'
+for i in range(61, 91):
+    origin_outcomes[i] = 'Hi-Tech'
+for i in range(91, 96):
+    origin_outcomes[i] = 'Robot'
+for i in range(96, 101):
+    origin_outcomes[i] = 'Alien'
+
+#Powers counter
+powers_outcomes = {}
+for i in range(1, 21):
+    powers_outcomes[i] = 2
+for i in range(21, 61):
+    powers_outcomes[i] = 3
+for i in range(61, 91):
+    powers_outcomes[i] = 4
+for i in range(91, 101):
+    powers_outcomes[i] = 5
+
+#Talents counter
+talents_outcomes = {}
+for i in range(1, 21):
+    talents_outcomes[i] = 1
+for i in range(21, 61):
+    talents_outcomes[i] = 2
+for i in range(61, 91):
+    talents_outcomes[i] = 3
+for i in range(91, 101):
+    talents_outcomes[i] = 4
+
+#Contacts counter
+contacts_outcomes = {}
+for i in range(1, 21):
+    contacts_outcomes[i] = 0
+for i in range(21, 61):
+    contacts_outcomes[i] = 1
+for i in range(61, 91):
+    contacts_outcomes[i] = 2
+for i in range(91, 101):
+    contacts_outcomes[i] = 3
+
+#Generating FASERIP_Rank1 (Altered Humans and Mutants)
+faserip_rank1_outcomes = {}
+for i in range(1, 6):
+    faserip_rank1_outcomes[i] = 'Feeble'
+for i in range(6, 11):
+    faserip_rank1_outcomes[i] = 'Poor'
+for i in range(11, 21):
+    faserip_rank1_outcomes[i] = 'Typical'
+for i in range(21, 41):
+    faserip_rank1_outcomes[i] = 'Good'
+for i in range(41, 61):
+    faserip_rank1_outcomes[i] = 'Excellent'
+for i in range(61, 81):
+    faserip_rank1_outcomes[i] = 'Remarkable'
+for i in range(81, 97):
+    faserip_rank1_outcomes[i] = 'Incredible'
+for i in range(97, 101):
+    faserip_rank1_outcomes[i] = 'Amazing'
+
+#Generating FASERIP_Rank3 (High Technology)
+faserip_rank3_outcomes = {}
+for i in range(1, 6):
+    faserip_rank3_outcomes[i] = 'Feeble'
+for i in range(6, 11):
+    faserip_rank3_outcomes[i] = 'Poor'
+for i in range(11, 41):
+    faserip_rank3_outcomes[i] = 'Typical'
+for i in range(41, 81):
+    faserip_rank3_outcomes[i] = 'Good'
+for i in range(81, 96):
+    faserip_rank3_outcomes[i] = 'Excellent'
+for i in range(96, 101):
+    faserip_rank3_outcomes[i] = 'Remarkable'
+
+#Generating FASERIP_Rank4 (Robots)
+faserip_rank4_outcomes = {}
+for i in range(1, 6):
+    faserip_rank4_outcomes[i] = 'Feeble'
+for i in range(6, 11):
+    faserip_rank4_outcomes[i] = 'Poor'
+for i in range(11, 16):
+    faserip_rank4_outcomes[i] = 'Typical'
+for i in range(16, 41):
+    faserip_rank4_outcomes[i] = 'Good'
+for i in range(41, 51):
+    faserip_rank4_outcomes[i] = 'Excellent'
+for i in range(51, 71):
+    faserip_rank4_outcomes[i] = 'Remarkable'
+for i in range(71, 91):
+    faserip_rank4_outcomes[i] = 'Incredible'
+for i in range(91, 99):
+    faserip_rank4_outcomes[i] = 'Amazing'
+for i in range(91, 101):
+    faserip_rank4_outcomes[i] = 'Monstrous'
+
+#Generating FASERIP_Rank5 (Aliens)
+faserip_rank5_outcomes = {}
+for i in range(1, 11):
+    faserip_rank5_outcomes[i] = 'Feeble'
+for i in range(11, 21):
+    faserip_rank5_outcomes[i] = 'Poor'
+for i in range(21, 31):
+    faserip_rank5_outcomes[i] = 'Typical'
+for i in range(31, 41):
+    faserip_rank5_outcomes[i] = 'Good'
+for i in range(41, 61):
+    faserip_rank5_outcomes[i] = 'Excellent'
+for i in range(61, 71):
+    faserip_rank5_outcomes[i] = 'Remarkable'
+for i in range(71, 81):
+    faserip_rank5_outcomes[i] = 'Incredible'
+for i in range(81, 96):
+    faserip_rank5_outcomes[i] = 'Amazing'
+for i in range(96, 101):
+    faserip_rank5_outcomes[i] = 'Monstrous'
+
+#Generating Power Class
+power_class_outcomes = {}
+for i in range(1, 6):
+    power_class_outcomes[i] = 'Defensive'
+for i in range(6, 12):
+    power_class_outcomes[i] = 'Detection'
+for i in range(12, 17):
+    power_class_outcomes[i] = 'Energy Control'
+for i in range(17, 25):
+    power_class_outcomes[i] = 'Energy Emission'
+for i in range(25, 30):
+    power_class_outcomes[i] = 'Fighting'
+for i in range(30, 32):
+    power_class_outcomes[i] = 'Illusionary'
+for i in range(32, 36):
+    power_class_outcomes[i] = 'Lifeform Control'
+for i in range(36, 41):
+    power_class_outcomes[i] = 'Magic'
+for i in range(41, 48):
+    power_class_outcomes[i] = 'Matter Control'
+for i in range(48, 54):
+    power_class_outcomes[i] = 'Matter Conversion'
+for i in range(54, 58):
+    power_class_outcomes[i] = 'Matter Creation'
+for i in range(58, 72):
+    power_class_outcomes[i] = 'Mental Enhancement'
+for i in range(72, 86):
+    power_class_outcomes[i] = 'Physical Enhancement'
+for i in range(86, 89):
+    power_class_outcomes[i] = 'Power Control'
+for i in range(89, 93):
+    power_class_outcomes[i] = 'Self-Alteration'
+for i in range(93, 101):
+    power_class_outcomes[i] = 'Travel'
+
+#Generating Power Category (Defensive Power)
+power_category_defensive_outcomes = {}
+for i in range(1, 16):
+    power_category_defensive_outcomes[i] = 'Body Armor'
+for i in range(16, 21):
+    power_category_defensive_outcomes[i] = 'Force Field'
+for i in range(21, 24):
+    power_category_defensive_outcomes[i] = 'Force Field vs Emotion'
+for i in range(24, 31):
+    power_category_defensive_outcomes[i] = 'Force Field vs Energy'
+for i in range(31, 36):
+    power_category_defensive_outcomes[i] = 'Force Field vs Magic'
+for i in range(36, 41):
+    power_category_defensive_outcomes[i] = 'Force Field vs Mental'
+for i in range(41, 49):
+    power_category_defensive_outcomes[i] = 'Force Field vs Physical'
+for i in range(49, 51):
+    power_category_defensive_outcomes[i] = 'Force Field vs Power Manipulation'
+for i in range(51, 54):
+    power_category_defensive_outcomes[i] = 'Force Field vs Vampirism'
+for i in range(54, 66):
+    power_category_defensive_outcomes[i] = 'Reflection'
+for i in range(66, 71):
+    power_category_defensive_outcomes[i] = 'Resist: Emotion'
+for i in range(71, 78):
+    power_category_defensive_outcomes[i] = 'Resist: Energy'
+for i in range(78, 83):
+    power_category_defensive_outcomes[i] = 'Resist: Magic'
+for i in range(83, 88):
+    power_category_defensive_outcomes[i] = 'Resist: Mental'
+for i in range(88, 95):
+    power_category_defensive_outcomes[i] = 'Resist: Physical'
+for i in range(95, 98):
+    power_category_defensive_outcomes[i] = 'Resist: Power Manipulation'
+for i in range(98, 101):
+    power_category_defensive_outcomes[i] = 'Resist: Vampirism'
+
+#Generating Power Category (Detection Power)
+power_category_detection_outcomes = {}
+for i in range(1, 3):
+    power_category_detection_outcomes[i] = 'Abnormal Sensitivity'
+for i in range(3, 5):
+    power_category_detection_outcomes[i] = 'Circular Vision'
+for i in range(5, 11):
+    power_category_detection_outcomes[i] = 'Energy Detection'
+for i in range(11, 15):
+    power_category_detection_outcomes[i] = 'Environmental Awareness'
+for i in range(15, 21):
+    power_category_detection_outcomes[i] = 'Extradimensional'
+for i in range(21, 29):
+    power_category_detection_outcomes[i] = 'Hyper-Hearing'
+for i in range(29, 35):
+    power_category_detection_outcomes[i] = 'Hyper-Olfactory'
+for i in range(35, 41):
+    power_category_detection_outcomes[i] = 'Hyper-Touch'
+for i in range(41, 43):
+    power_category_detection_outcomes[i] = 'Life Detection'
+for i in range(43, 45):
+    power_category_detection_outcomes[i] = 'Magic Detection'
+for i in range(45, 51):
+    power_category_detection_outcomes[i] = 'Microscopic Vision'
+for i in range(51, 55):
+    power_category_detection_outcomes[i] = 'Penetration Vision'
+for i in range(55, 57):
+    power_category_detection_outcomes[i] = 'Power Detection'
+for i in range(57, 59):
+    power_category_detection_outcomes[i] = 'Psionic Detection'
+for i in range(59, 60):
+    power_category_detection_outcomes[i] = 'Radarsense'
+for i in range(60, 63):
+    power_category_detection_outcomes[i] = 'Sonar'
+for i in range(63, 70):
+    power_category_detection_outcomes[i] = 'Telescopic Vision'
+for i in range(70, 80):
+    power_category_detection_outcomes[i] = 'Thermal Vision'
+for i in range(80, 91):
+    power_category_detection_outcomes[i] = 'Tracking'
+for i in range(91, 95):
+    power_category_detection_outcomes[i] = 'True Sight'
+for i in range(95, 99):
+    power_category_detection_outcomes[i] = 'UV Vision'
+for i in range(99, 101):
+    power_category_detection_outcomes[i] = 'Weakness Detection'
+
+#Generating Power Category (Energy Control Power)
+power_category_energy_control_outcomes = {}
+for i in range(1, 8):
+    power_category_energy_control_outcomes[i] = 'Absorption Power'
+for i in range(8, 11):
+    power_category_energy_control_outcomes[i] = 'Catalytic Control'
+for i in range(11, 16):
+    power_category_energy_control_outcomes[i] = 'Coldshaping'
+for i in range(16, 19):
+    power_category_energy_control_outcomes[i] = 'Darkforce Manipulation'
+for i in range(19, 26):
+    power_category_energy_control_outcomes[i] = 'Electrical Control'
+for i in range(26, 29):
+    power_category_energy_control_outcomes[i] = 'Energy Conversion'
+for i in range(29, 32):
+    power_category_energy_control_outcomes[i] = 'Energy Solidification'
+for i in range(32, 37):
+    power_category_energy_control_outcomes[i] = 'Energy Sponge'
+for i in range(37, 39):
+    power_category_energy_control_outcomes[i] = 'Energy Vampirism*'
+for i in range(39, 46):
+    power_category_energy_control_outcomes[i] = 'Fire Control'
+for i in range(46, 50):
+    power_category_energy_control_outcomes[i] = 'Gravity Manipulation'
+for i in range(50, 54):
+    power_category_energy_control_outcomes[i] = 'Hard Radiation Control'
+for i in range(54, 60):
+    power_category_energy_control_outcomes[i] = 'Kinetic Control'
+for i in range(60, 67):
+    power_category_energy_control_outcomes[i] = 'Light Control'
+for i in range(67, 74):
+    power_category_energy_control_outcomes[i] = 'Magnetic Manipulation'
+for i in range(74, 78):
+    power_category_energy_control_outcomes[i] = 'Plasma Control'
+for i in range(78, 81):
+    power_category_energy_control_outcomes[i] = 'Radiowave Control'
+for i in range(81, 85):
+    power_category_energy_control_outcomes[i] = 'Shadowshaping'
+for i in range(85, 91):
+    power_category_energy_control_outcomes[i] = 'Sound Manipulation'
+for i in range(91, 98):
+    power_category_energy_control_outcomes[i] = 'Thermal Control'
+for i in range(98, 101):
+    power_category_energy_control_outcomes[i] = 'Vibration Control'
+
+#Generating Power Category (Energy Emission Power)
+power_category_energy_emission_outcomes = {}
+for i in range(1, 11):
+    power_category_energy_emission_outcomes[i] = 'Cold Generation'
+for i in range(11, 21):
+    power_category_energy_emission_outcomes[i] = 'Electrical Generation'
+for i in range(21, 23):
+    power_category_energy_emission_outcomes[i] = 'Energy Doppelganger'
+for i in range(23, 35):
+    power_category_energy_emission_outcomes[i] = 'Fire Generation'
+for i in range(35, 38):
+    power_category_energy_emission_outcomes[i] = 'Hard Radiation'
+for i in range(38, 43):
+    power_category_energy_emission_outcomes[i] = 'Heat'
+for i in range(43, 53):
+    power_category_energy_emission_outcomes[i] = 'Kinetic Bolt'
+for i in range(53, 63):
+    power_category_energy_emission_outcomes[i] = 'Light Emission'
+for i in range(63, 73):
+    power_category_energy_emission_outcomes[i] = 'Magnetism'
+for i in range(73, 76):
+    power_category_energy_emission_outcomes[i] = 'Plasma Generation'
+for i in range(76, 79):
+    power_category_energy_emission_outcomes[i] = 'Radiowave Generation'
+for i in range(79, 84):
+    power_category_energy_emission_outcomes[i] = 'Shadowcasting'
+for i in range(84, 94):
+    power_category_energy_emission_outcomes[i] = 'Sonic Generation'
+for i in range(94, 101):
+    power_category_energy_emission_outcomes[i] = 'Vibration'
+
+#Generating Power Category (Fighting Power)
+power_category_fighting_outcomes = {}
+for i in range(1, 21):
+    power_category_fighting_outcomes[i] = 'Berserker'
+for i in range(21, 61):
+    power_category_fighting_outcomes[i] = 'Martial Supremacy'
+for i in range(61, 76):
+    power_category_fighting_outcomes[i] = 'Natural Weaponry'
+for i in range(76, 81):
+    power_category_fighting_outcomes[i] = 'Weapons Creation*'
+for i in range(81, 101):
+    power_category_fighting_outcomes[i] = 'Weapons Tinkering'
+    
+#Generating Power Category (Illusory Power)
+power_category_illusory_power_outcomes = {}
+for i in range(1, 16):
+    power_category_illusory_power_outcomes[i] = 'Animate Image'
+for i in range(16, 71):
+    power_category_illusory_power_outcomes[i] = 'Illusion-Casting*'
+for i in range(71, 85):
+    power_category_illusory_power_outcomes[i] = 'Illusory Invisibility'
+for i in range(85, 101):
+    power_category_illusory_power_outcomes[i] = 'Illusory Duplication'
+
+#Generating Power Category (Lifeform Control Power)
+power_category_lifeform_control_outcomes = {}
+for i in range(1, 15):
+    power_category_lifeform_control_outcomes[i] = 'Biophysical Control*'
+for i in range(15, 16):
+    power_category_lifeform_control_outcomes[i] = 'Bio-Vampirism*'
+for i in range(16, 19):
+    power_category_lifeform_control_outcomes[i] = 'Body Transformation - Others'
+for i in range(19, 27):
+    power_category_lifeform_control_outcomes[i] = 'Emotion Control'
+for i in range(27, 33):
+    power_category_lifeform_control_outcomes[i] = 'Exorcism'
+for i in range(33, 35):
+    power_category_lifeform_control_outcomes[i] = 'Force Field vs. Hostilities'
+for i in range(35, 36):
+    power_category_lifeform_control_outcomes[i] = 'Forced Reincarnation'
+for i in range(36, 40):
+    power_category_lifeform_control_outcomes[i] = 'Grafting*'
+for i in range(40, 52):
+    power_category_lifeform_control_outcomes[i] = 'Hypnotic Control'
+for i in range(52, 61):
+    power_category_lifeform_control_outcomes[i] = 'Mind Control*'
+for i in range(61, 63):
+    power_category_lifeform_control_outcomes[i] = 'Mind Transferral*'
+for i in range(63, 66):
+    power_category_lifeform_control_outcomes[i] = 'Neural Manipulation'
+for i in range(66, 67):
+    power_category_lifeform_control_outcomes[i] = 'Plague Carrier'
+for i in range(67, 70):
+    power_category_lifeform_control_outcomes[i] = 'Plant Control'
+for i in range(70, 72):
+    power_category_lifeform_control_outcomes[i] = 'Plant Growth'
+for i in range(72, 81):
+    power_category_lifeform_control_outcomes[i] = 'Sense Alteration'
+for i in range(81, 84):
+    power_category_lifeform_control_outcomes[i] = 'Shapechange - Others*'
+for i in range(84, 90):
+    power_category_lifeform_control_outcomes[i] = 'Sleep - Induced'
+for i in range(90, 91):
+    power_category_lifeform_control_outcomes[i] = 'Spirit Storage'
+for i in range(91, 96):
+    power_category_lifeform_control_outcomes[i] = 'Summoning'
+for i in range(96, 101):
+    power_category_lifeform_control_outcomes[i] = 'Undead Control'
+
+#Generating Power Category (Magical Power)
+power_category_magic_outcomes = {}
+for i in range(1, 9):
+    power_category_magic_outcomes[i] = 'Enchantment*'
+for i in range(9, 16):
+    power_category_magic_outcomes[i] = 'Energy Source'
+for i in range(16, 18):
+    power_category_magic_outcomes[i] = 'Internal Limbo'
+for i in range(18, 26):
+    power_category_magic_outcomes[i] = 'Magic Control*'
+for i in range(26, 29):
+    power_category_magic_outcomes[i] = 'Magic Creation*'
+for i in range(29, 34):
+    power_category_magic_outcomes[i] = 'Magic Domination'
+for i in range(34, 40):
+    power_category_magic_outcomes[i] = 'Magic Transferral'
+for i in range(40, 42):
+    power_category_magic_outcomes[i] = 'Magic Vampirism*'
+for i in range(42, 72):
+    power_category_magic_outcomes[i] = 'Power Simulation'
+for i in range(72, 78):
+    power_category_magic_outcomes[i] = 'Reality Alteration*'
+for i in range(78, 80):
+    power_category_magic_outcomes[i] = 'Spirit Vampirism*'
+for i in range(80, 96):
+    power_category_magic_outcomes[i] = 'Sympathetic Magic'
+for i in range(96, 101):
+    power_category_magic_outcomes[i] = 'Warding'
+
+#Generating Power Category (Matter Conversion Power)
+power_category_matter_conversion_outcomes = {}
+for i in range(1, 11):
+    power_category_matter_conversion_outcomes[i] = 'Coloration'
+for i in range(11, 26):
+    power_category_matter_conversion_outcomes[i] = 'Combustion'
+for i in range(26, 46):
+    power_category_matter_conversion_outcomes[i] = 'Disintegration*'
+for i in range(46, 71):
+    power_category_matter_conversion_outcomes[i] = 'Elemental Conversion*'
+for i in range(71, 81):
+    power_category_matter_conversion_outcomes[i] = 'Ionization'
+for i in range(81, 101):
+    power_category_matter_conversion_outcomes[i] = 'Molecular Conversion*'
+
+#Generating Power Category (Matter Control Power)
+power_category_matter_control_outcomes = {}
+for i in range(1, 6):
+    power_category_matter_control_outcomes[i] = 'Bonding'
+for i in range(6, 18):
+    power_category_matter_control_outcomes[i] = 'Collection'
+for i in range(18, 23):
+    power_category_matter_control_outcomes[i] = 'Crystallization'
+for i in range(23, 30):
+    power_category_matter_control_outcomes[i] = 'Diminution'
+for i in range(30, 40):
+    power_category_matter_control_outcomes[i] = 'Disruption'
+for i in range(40, 47):
+    power_category_matter_control_outcomes[i] = 'Enlargement'
+for i in range(47, 52):
+    power_category_matter_control_outcomes[i] = 'Geoforce'
+for i in range(52, 62):
+    power_category_matter_control_outcomes[i] = 'Matter Animation*'
+for i in range(62, 69):
+    power_category_matter_control_outcomes[i] = 'Machine Animation*'
+for i in range(69, 74):
+    power_category_matter_control_outcomes[i] = 'Micro-Environment'
+for i in range(74, 84):
+    power_category_matter_control_outcomes[i] = 'Molding'
+for i in range(84, 94):
+    power_category_matter_control_outcomes[i] = 'Weather'
+for i in range(94, 101):
+    power_category_matter_control_outcomes[i] = 'Zombie Animation*'
+
+#Generating Power Category (Matter Creation Power
+power_category_matter_creation_outcomes = {}
+for i in range(1, 11):
+    power_category_matter_creation_outcomes[i] = 'Artifact Creation*'
+for i in range(11, 25):
+    power_category_matter_creation_outcomes[i] = 'Elemental Creation'
+for i in range(25, 30):
+    power_category_matter_creation_outcomes[i] = 'Lifeform Creation*'
+for i in range(30, 36):
+    power_category_matter_creation_outcomes[i] = 'Mechanical Creation*'
+for i in range(36, 60):
+    power_category_matter_creation_outcomes[i] = 'Missle Creation'
+for i in range(60, 70):
+    power_category_matter_creation_outcomes[i] = 'Moleulcar Creation'
+for i in range(70, 89):
+    power_category_matter_creation_outcomes[i] = 'Spray'
+for i in range(89,101):
+    power_category_matter_creation_outcomes[i] = 'Webcasting'
+
+#Generating Power Category (Mental Enhancement Power)
+power_category_mental_enhancement_outcomes = {}
+for i in range(1, 5):
+    power_category_mental_enhancement_outcomes[i] = 'Clairaudience'
+for i in range(5, 9):
+    power_category_mental_enhancement_outcomes[i] = 'Clairvoyance'
+for i in range(9, 12):
+    power_category_mental_enhancement_outcomes[i] = 'Communicate with Animals'
+for i in range(12, 13):
+    power_category_mental_enhancement_outcomes[i] = 'Communicate with Cybernetics'
+for i in range(13, 14):
+    power_category_mental_enhancement_outcomes[i] = 'Communicate with Non-Living'
+for i in range(14, 16):
+    power_category_mental_enhancement_outcomes[i] = 'Communicate with Plants'
+for i in range(16, 17):
+    power_category_mental_enhancement_outcomes[i] = 'Cosmic Awareness*'
+for i in range(17, 23):
+    power_category_mental_enhancement_outcomes[i] = 'Danger Sense'
+for i in range(23, 24):
+    power_category_mental_enhancement_outcomes[i] = 'Dreamtravel'
+for i in range(24, 27):
+    power_category_mental_enhancement_outcomes[i] = 'Empathy'
+for i in range(27, 28):
+    power_category_mental_enhancement_outcomes[i] = 'Free Spirit*'
+for i in range(28, 32):
+    power_category_mental_enhancement_outcomes[i] = 'Hallucinations*'
+for i in range(32, 41):
+    power_category_mental_enhancement_outcomes[i] = 'Hyper-Intelligence'
+for i in range(41, 48):
+    power_category_mental_enhancement_outcomes[i] = 'Hyper-Invention'
+for i in range(48, 49):
+    power_category_mental_enhancement_outcomes[i] = 'Incarnation Awareness'
+for i in range(49, 59):
+    power_category_mental_enhancement_outcomes[i] = 'Iron Will'
+for i in range(59, 66):
+    power_category_mental_enhancement_outcomes[i] = 'Linguistics'
+for i in range(66, 67):
+    power_category_mental_enhancement_outcomes[i] = 'Mental Duplication'
+for i in range(67, 68):
+    power_category_mental_enhancement_outcomes[i] = 'Mental Invisibility'
+for i in range(68, 70):
+    power_category_mental_enhancement_outcomes[i] = 'Mental Probe'
+for i in range(70, 73):
+    power_category_mental_enhancement_outcomes[i] = 'Mind Blast'
+for i in range(73, 74):
+    power_category_mental_enhancement_outcomes[i] = 'Mind Drain'
+for i in range(74, 75):
+    power_category_mental_enhancement_outcomes[i] = 'Postcognition'
+for i in range(75, 76):
+    power_category_mental_enhancement_outcomes[i] = 'Precognition*'
+for i in range(76, 77):
+    power_category_mental_enhancement_outcomes[i] = 'Psionic Vimpirism*'
+for i in range(77, 79):
+    power_category_mental_enhancement_outcomes[i] = 'Remote Sensing'
+for i in range(79, 80):
+    power_category_mental_enhancement_outcomes[i] = 'Sensory Link'
+for i in range(80, 81):
+    power_category_mental_enhancement_outcomes[i] = 'Serial Immortality*'
+for i in range(81, 82):
+    power_category_mental_enhancement_outcomes[i] = 'Speechthrowing'
+for i in range(82, 86):
+    power_category_mental_enhancement_outcomes[i] = 'Telekinesis'
+for i in range(86, 87):
+    power_category_mental_enhancement_outcomes[i] = 'Telelocation*'
+for i in range(87, 97):
+    power_category_mental_enhancement_outcomes[i] = 'Telepathy'
+for i in range(97, 101):
+    power_category_mental_enhancement_outcomes[i] = 'Total Memory'
+
+#Generating Power Category (Physical Enhancement Power)
+power_category_physical_enhancement_outcomes = {}
+for i in range(1, 15):
+    power_category_physical_enhancement_outcomes[i] = 'Armor Skin'
+for i in range(15, 29):
+    power_category_physical_enhancement_outcomes[i] = 'Body Resistance'
+for i in range(29, 31):
+    power_category_physical_enhancement_outcomes[i] = 'Chemical Touch'
+for i in range(31, 34):
+    power_category_physical_enhancement_outcomes[i] = 'Digestive Adaptation'
+for i in range(34, 41):
+    power_category_physical_enhancement_outcomes[i] = 'Hyper-Speed'
+for i in range(41, 43):
+    power_category_physical_enhancement_outcomes[i] = 'Hypnotic Voice'
+for i in range(43, 46):
+    power_category_physical_enhancement_outcomes[i] = 'Lung Adaptability'
+for i in range(46, 48):
+    power_category_physical_enhancement_outcomes[i] = 'Pheromones*'
+for i in range(48, 61):
+    power_category_physical_enhancement_outcomes[i] = 'Regeneration*'
+for i in range(61, 63):
+    power_category_physical_enhancement_outcomes[i] = 'Self-Revival'
+for i in range(63, 68):
+    power_category_physical_enhancement_outcomes[i] = 'Self-Sustenance'
+for i in range(68, 72):
+    power_category_physical_enhancement_outcomes[i] = 'Stealth'
+for i in range(72, 77):
+    power_category_physical_enhancement_outcomes[i] = 'Suspended Animation'
+for i in range(77, 79):
+    power_category_physical_enhancement_outcomes[i] = 'True Invulnerability*'
+for i in range(79, 83):
+    power_category_physical_enhancement_outcomes[i] = 'Vocal Control'
+for i in range(83, 91):
+    power_category_physical_enhancement_outcomes[i] = 'Waterbreathing'
+for i in range(91, 101):
+    power_category_physical_enhancement_outcomes[i] = 'Water Freedom'
+
+#Generating Power Category (Power Control)
+power_category_power_control_outcomes = {}
+for i in range(1, 9):
+    power_category_power_control_outcomes[i] = 'Control*'
+for i in range(9, 13):
+    power_category_power_control_outcomes[i] = 'Creation*'
+for i in range(13, 19):
+    power_category_power_control_outcomes[i] = 'Domination*'
+for i in range(19, 24):
+    power_category_power_control_outcomes[i] = 'Duplication'
+for i in range(24, 38):
+    power_category_power_control_outcomes[i] = 'Energy Source'
+for i in range(38, 40):
+    power_category_power_control_outcomes[i] = 'Energy Source Creation*'
+for i in range(40, 50):
+    power_category_power_control_outcomes[i] = 'Focus'
+for i in range(50, 56):
+    power_category_power_control_outcomes[i] = 'Gestalt'
+for i in range(56, 61):
+    power_category_power_control_outcomes[i] = 'Nemesis'
+for i in range(61, 65):
+    power_category_power_control_outcomes[i] = 'Power Transferral'
+for i in range(65, 74):
+    power_category_power_control_outcomes[i] = 'Power Vampirism*'
+for i in range(74, 84):
+    power_category_power_control_outcomes[i] = 'Residual Absorption'
+for i in range(84, 97):
+    power_category_power_control_outcomes[i] = 'Selection'
+for i in range(97, 101):
+    power_category_power_control_outcomes[i] = 'Weakness Creation*'
+
+#Generating Power Category (Self-Aleration Power)
+power_category_self_alteration_outcomes = {}
+for i in range(1, 3):
+    power_category_self_alteration_outcomes[i] = 'Age-Shift'
+for i in range(3, 17):
+    power_category_self_alteration_outcomes[i] = 'Alter Ego'
+for i in range(17, 19):
+    power_category_self_alteration_outcomes[i] = 'Anatomical Separation'
+for i in range(19, 21):
+    power_category_self_alteration_outcomes[i] = 'Animal Transformation'
+for i in range(21, 27):
+    power_category_self_alteration_outcomes[i] = 'Animal Mimicry'
+for i in range(27, 31):
+    power_category_self_alteration_outcomes[i] = 'Blending'
+for i in range(31, 35):
+    power_category_self_alteration_outcomes[i] = 'Body Adaptation*'
+for i in range(35, 43):
+    power_category_self_alteration_outcomes[i] = 'Body Transformation*'
+for i in range(43, 49):
+    power_category_self_alteration_outcomes[i] = 'Body Coating'
+for i in range(49, 53):
+    power_category_self_alteration_outcomes[i] = 'Chemical Mimicry'
+for i in range(53, 57):
+    power_category_self_alteration_outcomes[i] = 'Energy Body*'
+for i in range(57, 63):
+    power_category_self_alteration_outcomes[i] = 'Energy Sheath'
+for i in range(63, 65):
+    power_category_self_alteration_outcomes[i] = 'Evolution'
+for i in range(65, 75):
+    power_category_self_alteration_outcomes[i] = 'Imitation'
+for i in range(75, 83):
+    power_category_self_alteration_outcomes[i] = 'Invisibility'
+for i in range(83, 85):
+    power_category_self_alteration_outcomes[i] = 'Physical Gestalt'
+for i in range(85, 87):
+    power_category_self_alteration_outcomes[i] = 'Plant Mimicry'
+for i in range(87, 89):
+    power_category_self_alteration_outcomes[i] = 'Prehensile Hair'
+for i in range(89, 91):
+    power_category_self_alteration_outcomes[i] = 'Self-Duplication*'
+for i in range(91, 93):
+    power_category_self_alteration_outcomes[i] = 'Self-Vegetation'
+for i in range(93, 99):
+    power_category_self_alteration_outcomes[i] = 'Shapeshifting'
+for i in range(99, 101):
+    power_category_self_alteration_outcomes[i] = 'Spirit Gestalt'
+
+#Generating Power Category (Travel Power)
+power_category_travel_outcomes = {}
+for i in range(1, 3):
+    power_category_travel_outcomes[i] = 'Astral Body'
+for i in range(3, 7):
+    power_category_travel_outcomes[i] = 'Carrier Wave'
+for i in range(7, 11):
+    power_category_travel_outcomes[i] = 'Dimensional Travel'
+for i in range(11, 13):
+    power_category_travel_outcomes[i] = 'Energy Path'
+for i in range(13, 15):
+    power_category_travel_outcomes[i] = 'Floating Disc'
+for i in range(15, 21):
+    power_category_travel_outcomes[i] = 'Gateway'
+for i in range(21, 27):
+    power_category_travel_outcomes[i] = 'Gliding'
+for i in range(27, 29):
+    power_category_travel_outcomes[i] = 'Hyper-Digging'
+for i in range(29, 35):
+    power_category_travel_outcomes[i] = 'Hyper-Leaping'
+for i in range(35, 43):
+    power_category_travel_outcomes[i] = 'Hyper-Running'
+for i in range(43, 47):
+    power_category_travel_outcomes[i] = 'Hyper-Swimming'
+for i in range(47, 53):
+    power_category_travel_outcomes[i] = 'Levitation'
+for i in range(53, 57):
+    power_category_travel_outcomes[i] = 'Rocket'
+for i in range(57, 59):
+    power_category_travel_outcomes[i] = 'Skywalk'
+for i in range(59, 65):
+    power_category_travel_outcomes[i] = 'Spiderclimb'
+for i in range(65, 73):
+    power_category_travel_outcomes[i] = 'Teleport Self*'
+for i in range(73, 77):
+    power_category_travel_outcomes[i] = 'Teleport Others*'
+for i in range(77, 79):
+    power_category_travel_outcomes[i] = 'Telereformation'
+for i in range(79, 81):
+    power_category_travel_outcomes[i] = 'Time Travel*'
+for i in range(81, 83):
+    power_category_travel_outcomes[i] = 'Troubleseeker'
+for i in range(83, 94):
+    power_category_travel_outcomes[i] = 'True Flight'
+for i in range(94, 98):
+    power_category_travel_outcomes[i] = 'Water Walking'
+for i in range(98, 101):
+    power_category_travel_outcomes[i] = 'Whirlwind'
+
+def get_origin(roll):
+    if roll not in origin_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return origin_outcomes[roll]
+    
+def get_faserip_rank1(roll):
+    if roll not in faserip_rank1_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return faserip_rank1_outcomes[roll]
+
+def get_faserip_rank3(roll):
+    if roll not in faserip_rank3_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return faserip_rank3_outcomes[roll]
+
+def get_faserip_rank4(roll):
+    if roll not in faserip_rank4_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return faserip_rank4_outcomes[roll]
+
+def get_faserip_rank5(roll):
+    if roll not in faserip_rank5_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return faserip_rank5_outcomes[roll]
+
+def get_powers(roll):
+    if roll not in powers_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return powers_outcomes[roll]
+
+def get_talents(roll):
+    if roll not in talents_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return talents_outcomes[roll]
+
+def get_contacts(roll):
+    if roll not in contacts_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return contacts_outcomes[roll]
+
+def get_power_class(roll):
+    if roll not in power_class_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return power_class_outcomes[roll]
+
+def get_power_category(roll):
+    if roll not in power_category_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return power_category_outcomes[roll]
+
+def get_power_category_defensive(roll):
+    if roll not in power_category_defensive_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return power_category_defensive_outcomes[roll]
+
+def get_power_category_detection(roll):
+    if roll not in power_category_detection_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return power_category_detection_outcomes[roll]
+
+def get_power_category_energy_control(roll):
+    if roll not in power_category_energy_control_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return power_category_energy_control_outcomes[roll]
+
+def get_power_category_energy_emission(roll):
+    if roll not in power_category_energy_emission_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return power_category_energy_emission_outcomes[roll]
+
+def get_power_category_fighting_power(roll):
+    if roll not in power_category_fighting_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return power_category_fighting_outcomes[roll]
+
+def get_power_category_illusory_power(roll):
+    if roll not in power_category_illusory_power_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return power_category_illusory_power_outcomes[roll]
+
+def get_power_category_lifeform_control(roll):
+    if roll not in power_category_lifeform_control_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return power_category_lifeform_control_outcomes[roll]
+
+def get_power_category_magic(roll):
+    if roll not in power_category_magic_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return power_category_magic_outcomes[roll]
+
+def get_power_category_matter_control(roll):
+    if roll not in power_category_matter_control_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return power_category_matter_control_outcomes[roll]
+
+def get_power_category_matter_conversion(roll):
+    if roll not in power_category_matter_conversion_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return power_category_matter_conversion_outcomes[roll]
+
+def get_power_category_matter_creation(roll):
+    if roll not in power_category_matter_creation_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return power_category_matter_creation_outcomes[roll]
+
+def get_power_category_mental_enhancement(roll):
+    if roll not in power_category_mental_enhancement_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return power_category_mental_enhancement_outcomes[roll]
+
+def get_power_category_physical_enhancement(roll):
+    if roll not in power_category_physical_enhancement_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return power_category_physical_enhancement_outcomes[roll]
+
+def get_power_category_power_control(roll):
+    if roll not in power_category_power_control_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return power_category_power_control_outcomes[roll]
+
+def get_power_category_self_alteration(roll):
+    if roll not in power_category_self_aleration_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return power_category_self_alteration_outcomes[roll]
+
+def get_power_category_travel(roll):
+    if roll not in power_category_travel_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return power_category_travel_outcomes[roll]
+
+def print_stats():
+    print('')
+    print('Origin: ' + char_origin)
+    print('')
+    print('Primary Abilities:')
+    print('------------------')
+    print('Fighting: ' + char_stats[0])
+    print('Agility: ' + char_stats[1])
+    print('Strength: ' + char_stats[2])
+    print('Endurance: ' + char_stats[3])
+    print('Reason: ' + char_stats[4])
+    print('Intuition: ' + char_stats[5])
+    print('Psyche: ' + char_stats[6])
+    print('')
+    print('Secondary Abilities:')
+    print('--------------------')
+    print('Health: ' + str(health))
+    print('Karma: ' + str(karma))  
+    print('')
+    print('Special Abilities:')
+    print('------------------')
+    print('Powers: ' + str(char_powers) + ' Powers')
+    print('Talents: ' + str(char_talents) + ' Talents')
+    print('Contacts: ' + str(char_contacts) + ' Contacts')
+    print('')
+    print('Powers:')
+    print('-------')
+    print(*character_powers, sep = "\n")
+    print('')
+
+fase_dict = {}
+rip_dict = {}
+initial_rank_numbers = {
+    'Feeble': 1,
+    'Poor': 3,
+    'Typical': 5,
+    'Good': 8,
+    'Excellent': 16,
+    'Remarkable': 26,
+    'Incredible': 36,
+    'Amazing': 46,
+    'Monstrous': 63
+     }
+
+origin_roll = random.randint(1, 100)
+char_origin = get_origin(origin_roll)
+
+#FASERIP counter
+for counter in range(1,8):
+    if char_origin == 'Altered Human':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank1(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_origin == 'Mutant':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank1(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_origin == 'Hi-Tech':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank3(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_origin == 'Robot':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank4(faserip_roll)
+        char_stats.append(char_faserip)
+    elif char_origin == 'Alien':
+        faserip_roll = random.randint(1, 100)
+        char_faserip = get_faserip_rank5(faserip_roll)
+        char_stats.append(char_faserip)
+    else:
+        print('Debug')
+
+powers_roll = random.randint(1, 100)
+char_powers = get_powers(powers_roll)
+talents_roll = random.randint(1, 100)
+char_talents = get_talents(talents_roll)
+contacts_roll = random.randint(1, 100)
+char_contacts = get_contacts(contacts_roll)
+
+#Slice FASERIP
+FASE = char_stats[0:4]
+RIP = char_stats[4:7]
+
+#Count FASERIP
+for c in range(len(FASE)):
+    fase_dict[FASE[c]] = FASE.count(
+        FASE[c]
+        )
+for c in range(len(RIP)):
+    rip_dict[RIP[c]] = RIP.count(
+        RIP[c]
+        )
+
+fase_list = fase_dict.items()
+rip_list = rip_dict.items()
+health = 0
+karma = 0
+
+#Calculating Health via Tuple
+FASE_tuple = tuple(FASE)
+for k in (FASE_tuple):
+    if k == 'Feeble':
+        health = health + 1
+    elif k == 'Poor':
+        health = health + 3
+    elif k == 'Typical':
+        health = health + 5
+    elif k == 'Good':
+        health = health + 8
+    elif k == 'Excellent':
+        health = health + 16
+    elif k == 'Remarkable':
+        health = health + 26
+    elif k == 'Incredible':
+        health = health + 36
+    elif k == 'Amazing':
+        health = health + 46
+    elif k == 'Monstrous':
+        health = health + 63
+    else:
+        print('in progress')
+
+#Calculating Karma via Tuple
+RIP_tuple = tuple(RIP)
+for k in (RIP_tuple):
+    if k == 'Feeble':
+        karma = karma + 1
+    elif k == 'Poor':
+        karma = karma + 3
+    elif k == 'Typical':
+        karma = karma + 5
+    elif k == 'Good':
+        karma = karma + 8
+    elif k == 'Excellent':
+        karma = karma + 16
+    elif k == 'Remarkable':
+        karma = karma + 26
+    elif k == 'Incredible':
+        karma = karma + 36
+    elif k == 'Amazing':
+        karma = karma + 46
+    elif k == 'Monstrous':
+        karma = karma + 63
+    else:
+        print('in progress')
+
+#Generate Power Class and Categories
+power_loop_count = 1
+while power_loop_count <= char_powers:
+    power_class_roll = random.randint(1, 100)
+    power_class = get_power_class(power_class_roll)
+    if power_class == 'Defensive':
+        power_category_roll = random.randint(1, 100)
+        power = get_power_category_defensive(power_category_roll)
+        character_powers.append(power)
+    elif power_class == 'Detection':
+        power_category_roll = random.randint(1, 100)
+        power = get_power_category_detection(power_category_roll)
+        character_powers.append(power)
+    elif power_class == 'Energy Control':
+        power_category_roll = random.randint(1, 100)
+        power = get_power_category_energy_control(power_category_roll)
+        character_powers.append(power)
+    elif power_class == 'Energy Emission':
+        power_category_roll = random.randint(1, 100)
+        power = get_power_category_energy_emission(power_category_roll)
+        character_powers.append(power)
+    elif power_class == 'Fighting':
+        power_category_roll = random.randint(1, 100)
+        power = get_power_category_fighting_power(power_category_roll)
+        character_powers.append(power)
+    elif power_class == 'Illusionary':
+        power_category_roll = random.randint(1, 100)
+        power = get_power_category_illusory_power(power_category_roll)
+        character_powers.append(power)
+    elif power_class == 'Lifeform Control':
+        power_category_roll = random.randint(1, 100)
+        power = get_power_category_lifeform_contol(power_category_roll)
+        character_powers.append(power)
+    elif power_class == 'Magic':
+        power_category_roll = random.randint(1, 100)
+        power = get_power_category_magic(power_category_roll)
+        character_powers.append(power)
+    elif power_class == 'Matter Control':
+        power_category_roll = random.randint(1, 100)
+        power = get_power_category_matter_control(power_category_roll)
+        character_powers.append(power)
+    elif power_class == 'Matter Conversion':
+        power_category_roll = random.randint(1, 100)
+        power = get_power_category_matter_conversion(power_category_roll)
+        character_powers.append(power)
+    elif power_class == 'Matter Creation':
+        power_category_roll = random.randint(1, 100)
+        power = get_power_category_matter_creation(power_category_roll)
+        character_powers.append(power)
+    elif power_class == 'Mental Enhancement':
+        power_category_roll = random.randint(1, 100)
+        power = get_power_category_mental_enhancement(power_category_roll)
+        character_powers.append(power)
+    elif power_class == 'Physical Enhancement':
+        power_category_roll = random.randint(1, 100)
+        power = get_power_category_mental_enhancement(power_category_roll)
+        character_powers.append(power)
+    elif power_class == 'Power Control':
+        power_category_roll = random.randint(1, 100)
+        power = get_power_category_power_control(power_category_roll)
+        character_powers.append(power)
+    elif power_class == 'Self-Alteration':
+        power_category_roll = random.randint(1, 100)
+        power = get_power_category_self_alteration(power_category_roll)
+        character_powers.append(power)
+    elif power_class == 'Travel':
+        power_category_roll = random.randint(1, 100)
+        power = get_power_category_mental_enhancement(power_category_roll)
+        character_powers.append(power)
+    else:
+        print('Debug')
+    power_loop_count += 1
+
+#Show and Tell Time
+print('Begin the Character Creation Process!')
+print('Generating Origins...')
+print('You are ... ')
+time.sleep(1)
+print_stats()
