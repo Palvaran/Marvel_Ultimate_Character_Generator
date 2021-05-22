@@ -1128,7 +1128,7 @@ def print_stats():
     print(*character_powers, sep = "\n")
     print('')
     print('')
-    print('Marvel RPG information and details scan be found at https://classicmarvelforever.com')
+    print('Marvel RPG information and details can be found at https://classicmarvelforever.com')
     print('Program information can be found at https://ideasquantified.com')
 
 fase_dict = {}
