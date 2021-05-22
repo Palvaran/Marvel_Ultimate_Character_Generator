@@ -1134,7 +1134,7 @@ for counter in range(1,8):
         faserip_roll = random.randint(1, 100)
         char_faserip = get_faserip_rank2(faserip_roll)
         char_stats.append(char_faserip)
-    elif char_physical_form == 'DDemihuman - Equiman':
+    elif char_physical_form == 'Demihuman - Equiman':
         faserip_roll = random.randint(1, 100)
         char_faserip = get_faserip_rank2(faserip_roll)
         char_stats.append(char_faserip)
