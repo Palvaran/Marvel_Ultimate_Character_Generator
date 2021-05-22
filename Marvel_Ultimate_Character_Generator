@@ -122,6 +122,43 @@ for i in range(88, 99):
 for i in range(99, 101):
     origin_outcomes[i] = 'Rebirth'
 
+#Generating Weakness - Stimulus
+weakness_stimulus_outcomes = {}
+for i in range(1, 14):
+    weakness_stimulus_outcomes[i] = 'Psychological'
+for i in range(14, 19):
+    weakness_stimulus_outcomes[i] = 'Elemental Allergy'
+for i in range(19, 44):
+    weakness_stimulus_outcomes[i] = 'Molecular Allergy'
+for i in range(44, 69):
+    weakness_stimulus_outcomes[i] = 'Energy Allergy'
+for i in range(69, 82):
+    weakness_stimulus_outcomes[i] = 'Energy Depletion'
+for i in range(82, 95):
+    weakness_stimulus_outcomes[i] = 'Energy Dampening'
+for i in range(95, 101):
+    weakness_stimulus_outcomes[i] = 'Finite Limit'
+
+#Generating Weakness - Effect
+weakness_effect_outcomes = {}
+for i in range(1, 51):
+    weakness_effect_outcomes[i] = 'Power Negation'
+for i in range(51, 91):
+    weakness_effect_outcomes[i] = 'Incapacitation'
+for i in range(91, 101):
+    weakness_effect_outcomes[i] = 'Fatal'
+
+#Generating Weakness - Duration
+weakness_duration_outcomes = {}
+for i in range(1, 41):
+    weakness_duration_outcomes[i] = 'Continuous with Contact'
+for i in range(41, 61):
+    weakness_duration_outcomes[i] = 'Limited Duration with Contact'
+for i in range(61, 91):
+    weakness_duration_outcomes[i] = 'Limited Duration after Contact'
+for i in range(91, 101):
+    weakness_duration_outcomes[i] = 'Permanent'
+
 #Powers counter
 powers_outcomes = {}
 for i in range(1, 21):
@@ -842,6 +879,21 @@ def get_origin(roll):
     if roll not in origin_outcomes.keys():
         raise ValueError('Unsupported roll: {}'.format(roll))
     return origin_outcomes[roll]
+
+def get_weakness_stimulus(roll):
+    if roll not in weakness_stimulus_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return weakness_stimulus_outcomes[roll]
+
+def get_weakness_effect(roll):
+    if roll not in weakness_effect_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return weakness_effect_outcomes[roll]
+
+def get_weakness_duration(roll):
+    if roll not in weakness_duration_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return weakness_duration_outcomes[roll]
     
 def get_faserip_rank1(roll):
     if roll not in faserip_rank1_outcomes.keys():
@@ -977,6 +1029,9 @@ def print_stats():
     print('')
     print('Physical Form: ' + (char_physical_form))
     print('Power Origin: ' + char_origin)
+    print('Weakness Stimulus: ' + (char_weakness_stimulus))
+    print('Weakness Effect: ' + (char_weakness_effect))
+    print('Weakness Duration: ' + (char_weakness_duration))
     print('')
     print('Primary Abilities:')
     print('------------------')
@@ -1022,6 +1077,12 @@ physical_form_roll = random.randint(1, 100)
 char_physical_form = get_physical_form(physical_form_roll)
 origin_roll = random.randint(1, 100)
 char_origin = get_origin(origin_roll)
+weakness_stimulus_roll = random.randint(1, 100)
+char_weakness_stimulus = get_weakness_stimulus(weakness_stimulus_roll)
+weakness_effect_roll = random.randint(1, 100)
+char_weakness_effect = get_weakness_effect(weakness_effect_roll)
+weakness_duration_roll = random.randint(1, 100)
+char_weakness_duration = get_weakness_duration(weakness_duration_roll)
 
 #FASERIP counter
 for counter in range(1,8):
