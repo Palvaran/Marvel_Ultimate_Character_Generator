@@ -623,21 +623,6 @@ for i in range(80, 96):
 for i in range(96, 101):
     power_category_magic_outcomes[i] = 'Warding'
 
-#Generating Power Category (Matter Conversion Power)
-power_category_matter_conversion_outcomes = {}
-for i in range(1, 11):
-    power_category_matter_conversion_outcomes[i] = 'Coloration'
-for i in range(11, 26):
-    power_category_matter_conversion_outcomes[i] = 'Combustion'
-for i in range(26, 46):
-    power_category_matter_conversion_outcomes[i] = 'Disintegration*'
-for i in range(46, 71):
-    power_category_matter_conversion_outcomes[i] = 'Elemental Conversion*'
-for i in range(71, 81):
-    power_category_matter_conversion_outcomes[i] = 'Ionization'
-for i in range(81, 101):
-    power_category_matter_conversion_outcomes[i] = 'Molecular Conversion*'
-
 #Generating Power Category (Matter Control Power)
 power_category_matter_control_outcomes = {}
 for i in range(1, 6):
@@ -666,6 +651,21 @@ for i in range(84, 94):
     power_category_matter_control_outcomes[i] = 'Weather'
 for i in range(94, 101):
     power_category_matter_control_outcomes[i] = 'Zombie Animation*'
+
+#Generating Power Category (Matter Conversion Power)
+power_category_matter_conversion_outcomes = {}
+for i in range(1, 11):
+    power_category_matter_conversion_outcomes[i] = 'Coloration'
+for i in range(11, 26):
+    power_category_matter_conversion_outcomes[i] = 'Combustion'
+for i in range(26, 46):
+    power_category_matter_conversion_outcomes[i] = 'Disintegration*'
+for i in range(46, 71):
+    power_category_matter_conversion_outcomes[i] = 'Elemental Conversion*'
+for i in range(71, 81):
+    power_category_matter_conversion_outcomes[i] = 'Ionization'
+for i in range(81, 101):
+    power_category_matter_conversion_outcomes[i] = 'Molecular Conversion*'
 
 #Generating Power Category (Matter Creation Power
 power_category_matter_creation_outcomes = {}
@@ -901,7 +901,7 @@ for i in range(11, 13):
 for i in range(13, 15):
     power_category_travel_outcomes[i] = 'Floating Disc'
 for i in range(15, 21):
-    power_category_travel_outcomes[i] = 'Gateway'
+    power_category_travel_outcomes[i] = 'Gateway*'
 for i in range(21, 27):
     power_category_travel_outcomes[i] = 'Gliding'
 for i in range(27, 29):
@@ -1667,11 +1667,12 @@ for k in (RIP_tuple):
         print('in progress')
 
 #Generate Power Class and Categories
+
 power_loop_count = 1
 if char_physical_form == 'Mutant - Random':
-    power_loop_count = 0
+    power_loop_count += 1
 elif char_physical_form == 'Android':
-    power_loop_count = 0
+    power_loop_count += 1
 
 while power_loop_count <= char_powers:
     power_class_roll = random.randint(1, 100)
@@ -1679,70 +1680,102 @@ while power_loop_count <= char_powers:
     if power_class == 'Defensive':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_defensive(power_category_roll)
-        character_powers.append(power)
+        if power not in character_powers:
+            character_powers.append(power)
+            power_loop_count += 1
     elif power_class == 'Detection':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_detection(power_category_roll)
-        character_powers.append(power)
+        if power not in character_powers:
+            character_powers.append(power)
+            power_loop_count += 1
     elif power_class == 'Energy Control':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_energy_control(power_category_roll)
-        character_powers.append(power)
+        if power not in character_powers:
+            character_powers.append(power)
+            power_loop_count += 1
     elif power_class == 'Energy Emission':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_energy_emission(power_category_roll)
-        character_powers.append(power)
+        if power not in character_powers:
+            character_powers.append(power)
+            power_loop_count += 1
     elif power_class == 'Fighting':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_fighting_power(power_category_roll)
-        character_powers.append(power)
+        if power not in character_powers:
+            character_powers.append(power)
+            power_loop_count += 1
     elif power_class == 'Illusionary':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_illusory_power(power_category_roll)
-        character_powers.append(power)
+        if power not in character_powers:
+            character_powers.append(power)
+            power_loop_count += 1
     elif power_class == 'Lifeform Control':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_lifeform_contol(power_category_roll)
-        character_powers.append(power)
+        if power not in character_powers:
+            character_powers.append(power)
+            power_loop_count += 1
     elif power_class == 'Magic':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_magic(power_category_roll)
-        character_powers.append(power)
+        if power not in character_powers:
+            character_powers.append(power)
+            power_loop_count += 1
     elif power_class == 'Matter Control':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_matter_control(power_category_roll)
-        character_powers.append(power)
+        if power not in character_powers:
+            character_powers.append(power)
+            power_loop_count += 1
     elif power_class == 'Matter Conversion':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_matter_conversion(power_category_roll)
-        character_powers.append(power)
+        if power not in character_powers:
+            character_powers.append(power)
+            power_loop_count += 1
     elif power_class == 'Matter Creation':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_matter_creation(power_category_roll)
-        character_powers.append(power)
+        if power not in character_powers:
+            character_powers.append(power)
+            power_loop_count += 1
     elif power_class == 'Mental Enhancement':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_mental_enhancement(power_category_roll)
-        character_powers.append(power)
+        if power not in character_powers:
+            character_powers.append(power)
+            power_loop_count += 1
     elif power_class == 'Physical Enhancement':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_mental_enhancement(power_category_roll)
-        character_powers.append(power)
+        if power not in character_powers:
+            character_powers.append(power)
+            power_loop_count += 1
     elif power_class == 'Power Control':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_power_control(power_category_roll)
-        character_powers.append(power)
+        if power not in character_powers:
+            character_powers.append(power)
+            power_loop_count += 1
     elif power_class == 'Self-Alteration':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_self_alteration(power_category_roll)
-        character_powers.append(power)
+        if power not in character_powers:
+            character_powers.append(power)
+            power_loop_count += 1
     elif power_class == 'Travel':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_mental_enhancement(power_category_roll)
-        character_powers.append(power)
+        if power not in character_powers:
+            character_powers.append(power)
+            power_loop_count += 1
     else:
         print('Debug')
-    power_loop_count += 1
+
 
 #Show and Tell Time
 print('Begin the Character Creation Process!')
