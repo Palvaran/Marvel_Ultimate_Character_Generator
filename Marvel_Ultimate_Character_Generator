@@ -1594,6 +1594,7 @@ for counter in range(1,2):
 
 powers_roll = random.randint(1, 100)
 char_powers = get_powers(powers_roll)
+used_powers = char_powers
 talents_roll = random.randint(1, 100)
 char_talents = get_talents(talents_roll)
 contacts_roll = random.randint(1, 100)
@@ -1674,69 +1675,109 @@ if char_physical_form == 'Mutant - Random':
 elif char_physical_form == 'Android':
     power_loop_count += 1
 
-while power_loop_count <= char_powers:
+while power_loop_count <= used_powers:
     power_class_roll = random.randint(1, 100)
     power_class = get_power_class(power_class_roll)
     if power_class == 'Defensive':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_defensive(power_category_roll)
         if power not in character_powers:
-            character_powers.append(power)
-            power_loop_count += 1
+            if (power.find('*') != -1):
+                character_powers.append(power)
+                power_loop_count += 2
+            else:
+                character_powers.append(power)
+                power_loop_count += 1
     elif power_class == 'Detection':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_detection(power_category_roll)
         if power not in character_powers:
-            character_powers.append(power)
-            power_loop_count += 1
+            if (power.find('*') != -1):
+                character_powers.append(power)
+                power_loop_count += 2
+            else:
+                character_powers.append(power)
+                power_loop_count += 1
     elif power_class == 'Energy Control':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_energy_control(power_category_roll)
         if power not in character_powers:
-            character_powers.append(power)
-            power_loop_count += 1
+            if (power.find('*') != -1):
+                character_powers.append(power)
+                power_loop_count += 2
+            else:
+                character_powers.append(power)
+                power_loop_count += 1
     elif power_class == 'Energy Emission':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_energy_emission(power_category_roll)
         if power not in character_powers:
-            character_powers.append(power)
-            power_loop_count += 1
+            if (power.find('*') != -1):
+                character_powers.append(power)
+                power_loop_count += 2
+            else:
+                character_powers.append(power)
+                power_loop_count += 1
     elif power_class == 'Fighting':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_fighting_power(power_category_roll)
         if power not in character_powers:
-            character_powers.append(power)
-            power_loop_count += 1
+            if (power.find('*') != -1):
+                character_powers.append(power)
+                power_loop_count += 2
+            else:
+                character_powers.append(power)
+                power_loop_count += 1
     elif power_class == 'Illusionary':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_illusory_power(power_category_roll)
         if power not in character_powers:
-            character_powers.append(power)
-            power_loop_count += 1
+            if (power.find('*') != -1):
+                character_powers.append(power)
+                power_loop_count += 2
+            else:
+                character_powers.append(power)
+                power_loop_count += 1
     elif power_class == 'Lifeform Control':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_lifeform_contol(power_category_roll)
         if power not in character_powers:
-            character_powers.append(power)
-            power_loop_count += 1
+            if (power.find('*') != -1):
+                character_powers.append(power)
+                power_loop_count += 2
+            else:
+                character_powers.append(power)
+                power_loop_count += 1
     elif power_class == 'Magic':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_magic(power_category_roll)
         if power not in character_powers:
-            character_powers.append(power)
-            power_loop_count += 1
+            if (power.find('*') != -1):
+                character_powers.append(power)
+                power_loop_count += 2
+            else:
+                character_powers.append(power)
+                power_loop_count += 1
     elif power_class == 'Matter Control':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_matter_control(power_category_roll)
         if power not in character_powers:
-            character_powers.append(power)
-            power_loop_count += 1
+            if (power.find('*') != -1):
+                character_powers.append(power)
+                power_loop_count += 2
+            else:
+                character_powers.append(power)
+                power_loop_count += 1
     elif power_class == 'Matter Conversion':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_matter_conversion(power_category_roll)
         if power not in character_powers:
-            character_powers.append(power)
-            power_loop_count += 1
+            if (power.find('*') != -1):
+                character_powers.append(power)
+                power_loop_count += 2
+            else:
+                character_powers.append(power)
+                power_loop_count += 1
     elif power_class == 'Matter Creation':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_matter_creation(power_category_roll)
@@ -1747,32 +1788,52 @@ while power_loop_count <= char_powers:
         power_category_roll = random.randint(1, 100)
         power = get_power_category_mental_enhancement(power_category_roll)
         if power not in character_powers:
-            character_powers.append(power)
-            power_loop_count += 1
+            if (power.find('*') != -1):
+                character_powers.append(power)
+                power_loop_count += 2
+            else:
+                character_powers.append(power)
+                power_loop_count += 1
     elif power_class == 'Physical Enhancement':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_mental_enhancement(power_category_roll)
         if power not in character_powers:
-            character_powers.append(power)
-            power_loop_count += 1
+            if (power.find('*') != -1):
+                character_powers.append(power)
+                power_loop_count += 2
+            else:
+                character_powers.append(power)
+                power_loop_count += 1
     elif power_class == 'Power Control':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_power_control(power_category_roll)
         if power not in character_powers:
-            character_powers.append(power)
-            power_loop_count += 1
+            if (power.find('*') != -1):
+                character_powers.append(power)
+                power_loop_count += 2
+            else:
+                character_powers.append(power)
+                power_loop_count += 1
     elif power_class == 'Self-Alteration':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_self_alteration(power_category_roll)
         if power not in character_powers:
-            character_powers.append(power)
-            power_loop_count += 1
+            if (power.find('*') != -1):
+                character_powers.append(power)
+                power_loop_count += 2
+            else:
+                character_powers.append(power)
+                power_loop_count += 1
     elif power_class == 'Travel':
         power_category_roll = random.randint(1, 100)
         power = get_power_category_mental_enhancement(power_category_roll)
         if power not in character_powers:
-            character_powers.append(power)
-            power_loop_count += 1
+            if (power.find('*') != -1):
+                character_powers.append(power)
+                power_loop_count += 2
+            else:
+                character_powers.append(power)
+                power_loop_count += 1
     else:
         print('Debug')
 
