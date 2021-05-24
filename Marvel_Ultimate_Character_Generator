@@ -1130,12 +1130,22 @@ def print_stats():
     print(*character_powers, sep = "\n")
     print('')
     if len(character_bonuses) > 0:
-        print('Character Bonuses: ' + str(character_bonuses))
+        print('')
+        print('Character Bonuses:')
+        print('------------------')
+        for item in character_bonuses:    
+            print(item)
     if len (character_weaknesses) > 0:
-        print('Character Weaknesses: ' + str(character_weaknesses))
+        print('')
+        print('Character Weaknesses:')
+        print('------------------')
+        for item in character_weaknesses:
+            print(item)
     print('')
     print('')
-    print('Marvel RPG information and details can be found at https://classicmarvelforever.com')
+    print('Thanks to Marvel for inspiring so many of us.  Excelsior!')
+    print('')
+    print('Marvel RPG info can be found at https://classicmarvelforever.com')
     print('Program information can be found at https://ideasquantified.com')
 
 fase_dict = {}
@@ -1880,7 +1890,7 @@ elif char_physical_form == 'Humanoid Race':
     character_bonuses.append('Raise any one ability +1 CS')
 elif char_physical_form == 'Surgical Composite':
     char_resources = 'Poor'
-    char_popularity = 0
+    char_popularity = 'Zero'
     char_contacts = 1
     character_bonuses.append('Healing Rate: Twice Normal Human')
     character_weaknesses.append('Resistance: Mental Domination -1CS')
@@ -1914,7 +1924,7 @@ elif char_physical_form == 'Demihuman - Centaur':
 elif char_physical_form == 'Demihuman - Equiman':
     character_bonuses.append('Kicking: +1CS damage')
 elif char_physical_form == 'Demihuman - Faun':
-    char_popularity = 0
+    char_popularity = 'Zero'
     character_bonuses.append('Mental Dominations: Feeble (On Females)')
 elif char_physical_form == 'Demihuman - Felinoid':
     character_bonuses.append('Night Vision: Excellent')
@@ -1935,7 +1945,7 @@ elif char_physical_form == 'Demihuman - Chiropteran':
     character_bonuses.append('Sonar: Good')
     char_popularity = 'Feeble'
 elif char_physical_form == 'Demihuman - Lamian':
-    char_popularity = 0
+    char_popularity = 'Zero'
     character_bonuses.append('Escape: +1CS')
     lamian_chance = random.randint(1, 2)
     if lamian_chance == 1:
@@ -1957,7 +1967,7 @@ elif char_physical_form == 'Demihuman - Merhuman':
 #elif char_physical_form = 'Cyborg - Mechanically Augmented'
     
 elif char_physical_form == 'Robot - Human Shape':
-    char_popularity = 0
+    char_popularity = 'Zero'
 #elif char_physical_form == 'Robot - Usuform':
     
 #elif char_physical_form == 'Robot - Metamorphic':
