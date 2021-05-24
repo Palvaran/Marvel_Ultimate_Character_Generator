@@ -3,13 +3,15 @@
 #Website:  ideasquantified.com
 #Inspiration:  https://en.wikipedia.org/wiki/Marvel_Super_Heroes_(role-playing_game)
 
-import random, time
+import random, time, collections
 
 initial_ranks = ['Feeble', 'Poor', 'Typical', 'Good', 'Excellent', 'Remarkable', 'Incredible', 'Amazing', 'Monstrous']
 char_stats = []
 char_power_class = []
 power = []
 character_powers = []
+character_bonuses = []
+character_weaknesses = []
 
 #Generating Physical Form
 physical_form_outcomes = {}
@@ -1127,6 +1129,11 @@ def print_stats():
     print('-------')
     print(*character_powers, sep = "\n")
     print('')
+    if len(character_bonuses) > 0:
+        print('Character Bonuses: ' + str(character_bonuses))
+    if len (character_weaknesses) > 0:
+        print('Character Weaknesses: ' + str(character_weaknesses))
+    print('')
     print('')
     print('Marvel RPG information and details can be found at https://classicmarvelforever.com')
     print('Program information can be found at https://ideasquantified.com')
@@ -1594,7 +1601,6 @@ for counter in range(1,2):
 
 powers_roll = random.randint(1, 100)
 char_powers = get_powers(powers_roll)
-used_powers = char_powers
 talents_roll = random.randint(1, 100)
 char_talents = get_talents(talents_roll)
 contacts_roll = random.randint(1, 100)
@@ -1668,14 +1674,23 @@ for k in (RIP_tuple):
         print('in progress')
 
 #Generate Power Class and Categories
-
 power_loop_count = 1
 if char_physical_form == 'Mutant - Random':
-    power_loop_count += 1
+    power_loop_count -= 1
 elif char_physical_form == 'Android':
+    power_loop_count -= 1
+elif char_physical_form == 'Deity':
+    power_loop_count -= 2
+elif char_physical_form == 'Modified Human - Organic':
+    power_loop_count += 1
+elif char_physical_form == 'Modified Human - Muscular':
+    power_loop_count += 1
+elif char_physical_form == 'Modified Human - Skeletal':
+    power_loop_count += 1
+elif char_physical_form == 'Modified Human - Extra Parts':
     power_loop_count += 1
 
-while power_loop_count <= used_powers:
+while power_loop_count <= char_powers:
     power_class_roll = random.randint(1, 100)
     power_class = get_power_class(power_class_roll)
     if power_class == 'Defensive':
@@ -1837,6 +1852,147 @@ while power_loop_count <= used_powers:
     else:
         print('Debug')
 
+#Ability Modifiers
+if char_physical_form == 'Normal Human':
+    resources_mod = initial_ranks.index(char_resources)+1
+    char_resources = initial_ranks[resources_mod]
+elif char_physical_form == 'Mutant - Induced':
+    character_bonuses.append('Raise any one primary ability +1 CS')
+elif char_physical_form == 'Mutant - Random':
+    endurance_mod = initial_ranks.index(char_stats[3])+1
+    char_stats[3] = initial_ranks[endurance_mod]
+    resources_mod = initial_ranks.index(char_resources)-1
+    char_resources = initial_ranks[resources_mod]
+elif char_physical_form == 'Mutant - Breed':
+    endurance_mod = initial_ranks.index(char_stats[3])+1
+    char_stats[3] = initial_ranks[endurance_mod]
+    intuition_mod = initial_ranks.index(char_stats[6])+1
+    char_stats[6] = initial_ranks[intuition_mod]
+elif char_physical_form == 'Android':
+    popularity_mod = initial_ranks.index(char_popularity)-1
+    char_popularity = initial_ranks[popularity_mod]
+    character_bonuses.append('Raise any one ability +1 CS')
+elif char_physical_form == 'Humanoid Race':
+    char_resources = 'Poor'
+    char_contacts = 1
+    character_bonuses.append('Raise any one ability +1 CS')
+elif char_physical_form == 'Surgical Composite':
+    char_resources = 'Poor'
+    char_popularity = 0
+    char_contacts = 1
+    character_bonuses.append('Healing Rate: Twice Normal Human')
+    character_weaknesses.append('Resistance: Mental Domination -1CS')
+elif char_physical_form == 'Modified Human - Organic':
+    character_bonuses.append('Healing Rate: Twice Normal Human')
+elif char_physical_form == 'Modified Human - Muscular':
+    strength_mod = initial_ranks.index(char_stats[2])+1
+    char_stats[2] = initial_ranks[strength_mod]
+    endurance_mod = initial_ranks.index(char_stats[3])+1
+    char_stats[3] = initial_ranks[endurance_mod]
+elif char_physical_form == 'Modified Human - Skeletal':
+    character_bonuses.append('Resistance: Physical Attacks +1 CS')
+#elif char_physical_form = 'Modified Human - Extra Parts'
+elif char_physical_form == 'Demihuman - Centaur':
+    strength_mod = initial_ranks.index(char_stats[2])+1
+    char_stats[2] = initial_ranks[strength_mod]
+    character_bonuses.append('Movement: 4 areas/turn if horizonal ground')
+    character_weaknesses.append('Climbing: Feeble')
+elif char_physical_form == 'Demihuman - Equiman':
+    character_bonuses.append('Kicking: +1CS damage')
+elif char_physical_form == 'Demihuman - Faun':
+    char_popularity = 0
+    character_bonuses.append('Mental Dominations: Feeble (On Females)')
+elif char_physical_form == 'Demihuman - Felinoid':
+    character_bonuses.append('Night Vision: Excellent')
+    character_bonuses.append('Climbing: +1CS')
+elif char_physical_form == 'Demihuman - Lupinoid':
+    popularity_mod = initial_ranks.index(char_popularity)-1
+    char_popularity = initial_ranks[popularity_mod]
+    character_bonuses.append('Sense of Smell: Excellent')
+elif char_physical_form == 'Demihuman - Avian':
+    avian_chance = random.randint(1, 2)
+    if avian_chance == 1:
+        popularity_mod = initial_ranks.index(char_popularity)+1
+        char_popularity = initial_ranks[popularity_mod]
+    else:
+        fighting_mod = initial_ranks.index(char_stats[0])+1
+        char_stats[0] = initial_ranks[fighting_mod]
+elif char_physical_form == 'Demihuman - Chiropteran':
+    character_bonuses.append('Sonar: Good')
+    char_popularity = 'Feeble'
+elif char_physical_form == 'Demihuman - Lamian':
+    char_popularity = 0
+    character_bonuses.append('Escape: +1CS')
+    lamian_chance = random.randint(1, 2)
+    if lamian_chance == 1:
+        character_bonuses.append('Poison: Excellent')
+elif char_physical_form == 'Demihuman - Merhuman':
+    popularity_mod = initial_ranks.index(char_popularity)+1
+    char_popularity = initial_ranks[popularity_mod]
+    character_bonuses.append('Water Freedom')
+    character_bonuses.append('Water Breathing')
+    character_weaknesses.append('Movement: Limited to crawling on land')
+#elif char_physical_form = 'Demihuman - Other'
+#elif char_physical_form = 'Cyborg - Artifical Limbs and Organs'
+#elif char_physical_form = 'Cyborg - Exoskeleton'
+#elif char_physical_form = 'Cyborg - Mechanical Body'
+#elif char_physical_form = 'Cyborg - Mechanically Augmented'
+elif char_physical_form == 'Robot - Human Shape':
+    char_popularity = 0
+#elif char_physical_form == 'Robot - Usuform':
+#elif char_physical_form == 'Robot - Metamorphic':
+elif char_physical_form == 'Robot - Computer':
+    fighting_mod = initial_ranks.index(char_stats[0])-1
+    char_stats[0] = initial_ranks[fighting_mod]
+    reason_mod = initial_ranks.index(char_stats[4])+2
+    char_stats[4] = initial_ranks[reason_mod]
+    resources_mod = initial_ranks.index(char_resources)+1
+    char_resources = initial_ranks[resources_mod]
+elif char_physical_form == 'Angel or Demon':
+    fighting_mod = initial_ranks.index(char_stats[0])+1
+    char_stats[0] = initial_ranks[fighting_mod]
+    agility_mod = initial_ranks.index(char_stats[1])+1
+    char_stats[1] = initial_ranks[agility_mod]
+    strength_mod = initial_ranks.index(char_stats[2])+1
+    char_stats[2] = initial_ranks[strength_mod]
+    endurance_mod = initial_ranks.index(char_stats[3])+1
+    char_stats[3] = initial_ranks[endurance_mod]
+    char_contacts = 0
+    angel_chance = random.randint(1, 2)
+    if angel_chance == 1:
+        popularity_mod = initial_ranks.index(char_popularity)+2
+        char_popularity = initial_ranks[popularity_mod]
+        character_bonuses.append('Artifact Creation* - (Sword) Excellent')
+    else:
+        popularity_mod = initial_ranks.index(char_popularity)-2
+        char_popularity = initial_ranks[popularity_mod]
+        character_bonuses.append('Fire Generation: Good')
+        character_bonuses.append('Invulnerability: Heat and Fire')
+#elif char_physical_form = 'Deity'
+#elif char_physical_form = 'Animal'
+elif char_physical_form == 'Vegetable':
+    fighting_mod = initial_ranks.index(char_stats[0])-2
+    char_stats[0] = initial_ranks[fighting_mod]
+    strength_mod = initial_ranks.index(char_stats[2])+1
+    char_stats[2] = initial_ranks[strength_mod]
+    endurance_mod = initial_ranks.index(char_stats[3])+2
+    char_stats[3] = initial_ranks[endurance_mod]
+    char_contacts = 0
+    char_resources = 0
+    character_bonuses.append('Absorption: Good (Photosynthesis)')
+    character_weaknesses.append('Requirement: Light and water or -1 CS strength and endurance per day starting after 3 days')
+elif char_physical_form == 'Abnormal Chemistry':
+    endurance_mod = initial_ranks.index(char_stats[3])+1
+    char_stats[3] = initial_ranks[endurance_mod]
+#elif char_physical_form = 'Mineral'
+#elif char_physical_form = 'Gaseous'
+#elif char_physical_form = 'Liquid'
+#elif char_physical_form = 'Energy'
+#elif char_physical_form = 'Ethereal'
+#elif char_physical_form = 'Undead'
+#elif char_physical_form = 'Compound'
+#elif char_physical_form = 'Changeling'
+
 
 #Show and Tell Time
 print('Begin the Character Creation Process!')
@@ -1844,3 +2000,7 @@ print('Generating Origins...')
 print('You are ... ')
 time.sleep(1)
 print_stats()
+print()
+
+#print('Experimental Below')
+#print('------------------')
