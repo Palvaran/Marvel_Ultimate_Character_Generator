@@ -1893,8 +1893,19 @@ elif char_physical_form == 'Modified Human - Muscular':
     char_stats[3] = initial_ranks[endurance_mod]
 elif char_physical_form == 'Modified Human - Skeletal':
     character_bonuses.append('Resist: Physical Attacks +1 CS')
-#elif char_physical_form = 'Modified Human - Extra Parts'
-    
+elif char_physical_form == 'Modified Human - Extra Parts':
+    modified_human_chance = random.randint(1, 4)
+    if modified_human_chance == 1:
+        fighting_mod = initial_ranks.index(char_stats[0])+1
+        char_stats[0] = initial_ranks[fighting_mod]
+        character_bonuses.append('Extra Parts: Arms (Fighting)')
+    elif modified_human_chance == 2:
+        health = (health)*2
+        character_bonuses.append('Extra Parts: Double Organs (Double Health)')
+    elif modified_human_chance == 3:
+        character_bonuses.append('Extra Parts: Tail (One Additional Blunt Attack')
+    else:
+        character_bonuses.append('Extra Parts: Wings (Flight)')
 elif char_physical_form == 'Demihuman - Centaur':
     strength_mod = initial_ranks.index(char_stats[2])+1
     char_stats[2] = initial_ranks[strength_mod]
