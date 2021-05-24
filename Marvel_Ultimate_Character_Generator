@@ -1689,8 +1689,6 @@ if char_physical_form == 'Mutant - Random':
     power_loop_count -= 1
 elif char_physical_form == 'Android':
     power_loop_count -= 1
-elif char_physical_form == 'Deity':
-    power_loop_count -= 2
 elif char_physical_form == 'Modified Human - Organic':
     power_loop_count += 1
 elif char_physical_form == 'Modified Human - Muscular':
@@ -1699,6 +1697,10 @@ elif char_physical_form == 'Modified Human - Skeletal':
     power_loop_count += 1
 elif char_physical_form == 'Modified Human - Extra Parts':
     power_loop_count += 1
+elif char_physical_form == 'Cyborg - Mechanically Augmented':
+    power_loop_count += 1
+elif char_physical_form == 'Deity':
+    power_loop_count -= 2
 elif char_physical_form == 'Animal':
     power_loop_count += 1
 
@@ -1864,7 +1866,7 @@ while power_loop_count <= char_powers:
     else:
         print('Debug')
 
-#Ability Modifiers
+#Physical Form Modifiers
 if char_physical_form == 'Normal Human':
     resources_mod = initial_ranks.index(char_resources)+1
     char_resources = initial_ranks[resources_mod]
@@ -1954,24 +1956,27 @@ elif char_physical_form == 'Demihuman - Merhuman':
     popularity_mod = initial_ranks.index(char_popularity)+1
     char_popularity = initial_ranks[popularity_mod]
     character_bonuses.append('Water Freedom')
-    character_bonuses.append('Water Breathing')
+    character_bonuses.append('Waterbreathing')
     character_weaknesses.append('Movement: Limited to crawling on land')
 #elif char_physical_form = 'Demihuman - Other'
-    
-#elif char_physical_form = 'Cyborg - Artifical Limbs and Organs'
-    
+elif char_physical_form == 'Cyborg - Artifical Limbs and Organs':
+    intuition_mod = initial_ranks.index(char_stats[5])-1
+    char_stats[5] = initial_ranks[intuition_mod]
 #elif char_physical_form = 'Cyborg - Exoskeleton'
-    
-#elif char_physical_form = 'Cyborg - Mechanical Body'
-    
+elif char_physical_form == 'Cyborg - Mechanical Body':
+    intuition_mod = initial_ranks.index(char_stats[5])-1
+    char_stats[5] = initial_ranks[intuition_mod]
+    psyche_mod = initial_ranks.index(char_stats[6])-1
+    char_stats[6] = initial_ranks[psyche_mod]
+    character_bonuses.append('Resist: Disease: Monstrous')
+    character_bonuses.append('Resist: Poison: Monstrous')
+    char_contacts = 1
 #elif char_physical_form = 'Cyborg - Mechanically Augmented'
-    
 elif char_physical_form == 'Robot - Human Shape':
     char_popularity = 'Zero'
 #elif char_physical_form == 'Robot - Usuform':
-    
-#elif char_physical_form == 'Robot - Metamorphic':
-    
+elif char_physical_form == 'Robot - Metamorphic':
+    character_bonuses.append('Metamorphic Forms: 2')
 elif char_physical_form == 'Robot - Computer':
     fighting_mod = initial_ranks.index(char_stats[0])-1
     char_stats[0] = initial_ranks[fighting_mod]
@@ -1999,8 +2004,34 @@ elif char_physical_form == 'Angel or Demon':
         char_popularity = initial_ranks[popularity_mod]
         character_bonuses.append('Fire Generation: Good')
         character_bonuses.append('Invulnerability: Heat and Fire')
-#elif char_physical_form == 'Deity':
-        
+elif char_physical_form == 'Deity':
+    fighting_mod = initial_ranks.index(char_stats[0])+2
+    char_stats[0] = initial_ranks[fighting_mod]
+    agility_mod = initial_ranks.index(char_stats[1])+2
+    char_stats[1] = initial_ranks[agility_mod]
+    strength_mod = initial_ranks.index(char_stats[2])+2
+    char_stats[2] = initial_ranks[strength_mod]
+    endurance_mod = initial_ranks.index(char_stats[3])+2
+    char_stats[3] = initial_ranks[endurance_mod]
+    reason_mod = initial_ranks.index(char_stats[4])+2
+    char_stats[4] = initial_ranks[reason_mod]
+    intuition_mod = initial_ranks.index(char_stats[5])+2
+    char_stats[5] = initial_ranks[intuition_mod]
+    psyche_mod = initial_ranks.index(char_stats[6])+2
+    char_stats[6] = initial_ranks[psyche_mod]
+    popularity_mod = initial_ranks.index(char_popularity)+2
+    char_popularity = initial_ranks[popularity_mod]
+    power_loop_count = 0
+    while power_loop_count <= 1:
+        power_class_roll = random.randint(1, 100)
+        power = get_power_category_travel(power_class_roll)
+        if power not in character_powers:
+            if (power.find('*') != -1):
+                character_powers.append(power)
+                power_loop_count += 2
+            else:
+                character_powers.append(power)
+                power_loop_count += 1
 elif char_physical_form == 'Animal':
     char_resources = 'Zero'
     power_loop_count = 0
@@ -2058,9 +2089,28 @@ elif char_physical_form == 'Undead':
     endurance_mod = initial_ranks.index(char_stats[3])+1
     char_stats[3] = initial_ranks[endurance_mod]
     character_weaknesses.append('Psychological: Religious Symbols')
-#elif char_physical_form == 'Compound':
-#elif char_physical_form == 'Changeling':
-    
+elif char_physical_form == 'Compound':
+    compound_chance = random.randint(1, 100)
+    if compound_chance <51:
+        character_bonuses.append('Compound Forms: 2')
+    elif compound_chance <76:
+        character_bonuses.append('Compound Forms: 3')
+    elif compound_chance <96:
+        character_bonuses.append('Compound Forms: 4')
+    else:
+        character_bonuses.append('Compound Forms: 5')
+    popularity_mod = initial_ranks.index(char_popularity)-1
+    char_popularity = initial_ranks[popularity_mod]
+elif char_physical_form == 'Changeling':
+    changeling_chance = random.randint(1, 100)
+    if changeling_chance <51:
+        character_bonuses.append('Changeling Forms: 2')
+    elif changeling_chance <76:
+        character_bonuses.append('Changeling Forms: 3')
+    elif changeling_chance <96:
+        character_bonuses.append('Changeling Forms: 4')
+    else:
+        character_bonuses.append('Changeling Forms: 5')
     
 #Show and Tell Time
 print('Begin the Character Creation Process!')
