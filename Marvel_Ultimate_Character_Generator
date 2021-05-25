@@ -3,13 +3,14 @@
 #Website:  ideasquantified.com
 #Inspiration:  https://en.wikipedia.org/wiki/Marvel_Super_Heroes_(role-playing_game)
 
-import random, time, collections
+import random, time
 
 initial_ranks = ['Feeble', 'Poor', 'Typical', 'Good', 'Excellent', 'Remarkable', 'Incredible', 'Amazing', 'Monstrous']
 char_stats = []
 char_power_class = []
 power = []
 character_powers = []
+character_power_levels = []
 character_bonuses = []
 character_weaknesses = []
 
@@ -1127,7 +1128,10 @@ def print_stats():
     print('')
     print('Powers:')
     print('-------')
-    print(*character_powers, sep = "\n")
+    col_width = max(len(word) for row in char_powers_merged for word in row) + 2  # padding
+    for row in char_powers_merged:
+        print("".join(word.ljust(col_width) for word in row))
+    #print(*character_powers, sep = "\n")
     print('')
     if len(character_bonuses) > 0:
         print('')
@@ -1683,7 +1687,7 @@ for k in (RIP_tuple):
     else:
         print('in progress')
 
-#Generate Power Class and Categories
+#Generating Power Class and Categories
 power_loop_count = 1
 if char_physical_form == 'Mutant - Random':
     power_loop_count -= 1
@@ -1865,6 +1869,14 @@ while power_loop_count <= char_powers:
                 power_loop_count += 1
     else:
         print('Debug')
+
+#Generating Power Levels and Merging with Powers
+while len(character_power_levels) < len(character_powers):
+    power_level_roll = random.randint(1, 100)
+    char_power_level = get_faserip_rank4(power_level_roll)
+    character_power_levels.append(char_power_level)
+    power_loop_count += 1
+char_powers_merged = list(zip(character_powers, character_power_levels))
 
 #Physical Form Modifiers
 if char_physical_form == 'Normal Human':
@@ -2119,6 +2131,4 @@ print('You are ... ')
 time.sleep(1)
 print_stats()
 print()
-
-#print('Experimental Below')
-#print('------------------')
+print('')
