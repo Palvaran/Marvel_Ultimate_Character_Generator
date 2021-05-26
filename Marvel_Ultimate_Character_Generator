@@ -1149,8 +1149,8 @@ def print_stats():
     print('')
     print('Thanks to Marvel for inspiring so many of us.  Excelsior!')
     print('')
-    print('Marvel RPG info can be found at https://classicmarvelforever.com')
-    print('Program information can be found at https://ideasquantified.com')
+    print('Marvel RPG info can be found at https://classicmarvelforever.com.')
+    print('Program information can be found at https://ideasquantified.com.')
 
 fase_dict = {}
 rip_dict = {}
@@ -1168,6 +1168,7 @@ initial_rank_numbers = {
 
 #Generating Physical Form, Power Origin, Weaknesses, Resources, and Popularity
 physical_form_roll = random.randint(1, 100)
+#physical_form_roll =         #For Testing enter Physical Form
 char_physical_form = get_physical_form(physical_form_roll)
 origin_roll = random.randint(1, 100)
 char_origin = get_origin(origin_roll)
@@ -1929,7 +1930,11 @@ elif char_physical_form == 'Modified Human - Extra Parts':
     elif modified_human_chance == 3:
         character_bonuses.append('Extra Parts: Tail (One Additional Blunt Attack')
     else:
-        character_bonuses.append('Extra Parts: Wings (Flight)')
+        character_powers.append('Extra Parts: Wings (Flight)')
+        power_level_roll = random.randint(1, 100)
+        char_power_level = get_faserip_rank4(power_level_roll)
+        character_power_levels.append(char_power_level)
+        char_powers_merged = list(zip(character_powers, character_power_levels))      
 elif char_physical_form == 'Demihuman - Centaur':
     strength_mod = initial_ranks.index(char_stats[2])+1
     char_stats[2] = initial_ranks[strength_mod]
@@ -1941,12 +1946,16 @@ elif char_physical_form == 'Demihuman - Faun':
     char_popularity = 'Zero'
     character_bonuses.append('Mental Dominations: Feeble (On Females)')
 elif char_physical_form == 'Demihuman - Felinoid':
-    character_bonuses.append('Night Vision: Excellent')
+    character_powers.append('Night Vision')
+    character_power_levels.append('Excellent')
+    char_powers_merged = list(zip(character_powers, character_power_levels))
     character_bonuses.append('Climbing: +1CS')
 elif char_physical_form == 'Demihuman - Lupinoid':
     popularity_mod = initial_ranks.index(char_popularity)-1
     char_popularity = initial_ranks[popularity_mod]
-    character_bonuses.append('Sense of Smell: Excellent')
+    character_powers.append('Sense of Smell')
+    character_power_levels.append('Excellent')
+    char_powers_merged = list(zip(character_powers, character_power_levels))          
 elif char_physical_form == 'Demihuman - Avian':
     avian_chance = random.randint(1, 2)
     if avian_chance == 1:
@@ -1956,19 +1965,30 @@ elif char_physical_form == 'Demihuman - Avian':
         fighting_mod = initial_ranks.index(char_stats[0])+1
         char_stats[0] = initial_ranks[fighting_mod]
 elif char_physical_form == 'Demihuman - Chiropteran':
-    character_bonuses.append('Sonar: Good')
+    character_powers.append('Sonar')
+    character_power_levels.append('Good')
+    char_powers_merged = list(zip(character_powers, character_power_levels))
     char_popularity = 'Feeble'
 elif char_physical_form == 'Demihuman - Lamian':
     char_popularity = 'Zero'
     character_bonuses.append('Escape: +1CS')
     lamian_chance = random.randint(1, 2)
     if lamian_chance == 1:
-        character_bonuses.append('Poison: Excellent')
+        character_powers.append('Poison')
+        character_power_levels.append('Excellent')
+        char_powers_merged = list(zip(character_powers, character_power_levels))           
 elif char_physical_form == 'Demihuman - Merhuman':
     popularity_mod = initial_ranks.index(char_popularity)+1
     char_popularity = initial_ranks[popularity_mod]
-    character_bonuses.append('Water Freedom')
-    character_bonuses.append('Waterbreathing')
+    character_powers.append('Water Freedom')
+    power_level_roll = random.randint(1, 100)
+    char_power_level = get_faserip_rank4(power_level_roll)
+    character_power_levels.append(char_power_level)
+    character_powers.append('Waterbreathing')
+    power_level_roll = random.randint(1, 100)
+    char_power_level = get_faserip_rank4(power_level_roll)
+    character_power_levels.append(char_power_level)
+    char_powers_merged = list(zip(character_powers, character_power_levels))
     character_weaknesses.append('Movement: Limited to crawling on land')
 #elif char_physical_form = 'Demihuman - Other'
 elif char_physical_form == 'Cyborg - Artifical Limbs and Organs':
@@ -1980,8 +2000,8 @@ elif char_physical_form == 'Cyborg - Mechanical Body':
     char_stats[5] = initial_ranks[intuition_mod]
     psyche_mod = initial_ranks.index(char_stats[6])-1
     char_stats[6] = initial_ranks[psyche_mod]
-    character_bonuses.append('Resist: Disease: Monstrous')
-    character_bonuses.append('Resist: Poison: Monstrous')
+    character_bonuses.append('Resist Disease: Monstrous')
+    character_bonuses.append('Resist Poison: Monstrous')
     char_contacts = 1
 #elif char_physical_form = 'Cyborg - Mechanically Augmented'
 elif char_physical_form == 'Robot - Human Shape':
@@ -2010,11 +2030,15 @@ elif char_physical_form == 'Angel or Demon':
     if angel_chance == 1:
         popularity_mod = initial_ranks.index(char_popularity)+2
         char_popularity = initial_ranks[popularity_mod]
-        character_bonuses.append('Artifact Creation* - (Sword) Excellent')
+        character_powers.append('Artifact Creation*')
+        character_power_levels.append('Excellent')
+        char_powers_merged = list(zip(character_powers, character_power_levels))
     else:
         popularity_mod = initial_ranks.index(char_popularity)-2
         char_popularity = initial_ranks[popularity_mod]
-        character_bonuses.append('Fire Generation: Good')
+        character_powers.append('Fire Generation')
+        character_power_levels.append('Good')
+        char_powers_merged = list(zip(character_powers, character_power_levels))
         character_bonuses.append('Invulnerability: Heat and Fire')
 elif char_physical_form == 'Deity':
     fighting_mod = initial_ranks.index(char_stats[0])+2
@@ -2066,7 +2090,9 @@ elif char_physical_form == 'Vegetable':
     char_stats[3] = initial_ranks[endurance_mod]
     char_contacts = 0
     char_resources = 'Zero'
-    character_bonuses.append('Absorption: Good (Photosynthesis)')
+    character_powers.append('Absorption (Photosynthesis)')
+    character_power_levels.append('Good')
+    char_powers_merged = list(zip(character_powers, character_power_levels))
     character_weaknesses.append('Requirement: Light and water or -1 CS strength and endurance per day starting after 3 days')
 elif char_physical_form == 'Abnormal Chemistry':
     endurance_mod = initial_ranks.index(char_stats[3])+1
@@ -2089,8 +2115,15 @@ elif char_physical_form == 'Liquid':
             character_bonuses.append('Movement: Can form human body and walk')
 elif char_physical_form == 'Energy':
     character_weaknesses.append('Resist: Plasma Control -1CS')
-    char_powers.append('Energy Emission')
     character_bonuses.append('Physical Contact: Feeble Damage')
+    power_category_roll = random.randint(1, 100)
+    power = get_power_category_energy_emission(power_category_roll)
+    power_level_roll = random.randint(1, 100)
+    char_power_level = get_faserip_rank4(power_level_roll)
+    if power not in character_powers:
+        character_powers.append(power)
+        character_power_levels.append(char_power_level)
+        char_powers_merged = list(zip(character_powers, character_power_levels))
 elif char_physical_form == 'Ethereal':
     character_bonuses.append('Resist: Physical Attacks -9CS')
     character_weaknesses.append('Vulnerability: Magic Attacks')
