@@ -13,6 +13,8 @@ character_powers = []
 character_power_levels = []
 character_bonuses = []
 character_weaknesses = []
+talent = []
+character_talents = []
 
 #Generating Physical Form
 physical_form_outcomes = {}
@@ -670,7 +672,7 @@ for i in range(71, 81):
 for i in range(81, 101):
     power_category_matter_conversion_outcomes[i] = 'Molecular Conversion*'
 
-#Generating Power Category (Matter Creation Power
+#Generating Power Category (Matter Creation Power)
 power_category_matter_creation_outcomes = {}
 for i in range(1, 11):
     power_category_matter_creation_outcomes[i] = 'Artifact Creation*'
@@ -940,6 +942,511 @@ for i in range(94, 98):
 for i in range(98, 101):
     power_category_travel_outcomes[i] = 'Whirlwind'
 
+#Generating Talent Categories
+talent_category_outcomes = {}
+for i in range(1, 7):
+    talent_category_outcomes[i] = 'Alternative Sciences'
+for i in range(7, 13):
+    talent_category_outcomes[i] = 'Astronomy'
+for i in range(13, 21):
+    talent_category_outcomes[i] = 'Biology'
+for i in range(21, 29):
+    talent_category_outcomes[i] = 'Chemistry'
+for i in range(29, 35):
+    talent_category_outcomes[i] = 'Crime and Law'
+for i in range(35, 39):
+    talent_category_outcomes[i] = 'Cognitive Sciences and Humanities'
+for i in range(39, 46):
+    talent_category_outcomes[i] = 'Computer Science'
+for i in range(46, 53):
+    talent_category_outcomes[i] = 'Earth Science'
+for i in range(53, 60):
+    talent_category_outcomes[i] = 'Engineering'
+for i in range(60, 67):
+    talent_category_outcomes[i] = 'Fighting Skills'
+for i in range(67, 71):
+    talent_category_outcomes[i] = 'Medicine'
+for i in range(71, 75):
+    talent_category_outcomes[i] = 'Mystic and Mental'
+for i in range(75, 80):
+    talent_category_outcomes[i] = 'Other'
+for i in range(80, 87):
+    talent_category_outcomes[i] = 'Physics'
+for i in range(87, 94):
+    talent_category_outcomes[i] = 'Piloting'
+for i in range(94, 101):
+    talent_category_outcomes[i] = 'Weapons'
+    
+#Generating Talent Category (Alternative Sciences)
+talent_category_alternative_sciences_outcomes = {}
+for i in range(1, 26):
+    talent_category_alternative_sciences_outcomes[i] = 'Catastrophism'
+for i in range(26, 51):
+    talent_category_alternative_sciences_outcomes[i] = 'Cryonics'
+for i in range(51, 76):
+    talent_category_alternative_sciences_outcomes[i] = 'Paranormal Phenomena'
+for i in range(76, 101):
+    talent_category_alternative_sciences_outcomes[i] = 'Parapsychology'
+
+#Generating Talent Category (Astronomy)
+talent_category_astronomy_outcomes = {}
+for i in range(1, 21):
+    talent_category_astronomy_outcomes[i] = 'Astronautics'
+for i in range(21, 41):
+    talent_category_astronomy_outcomes[i] = 'Astrophotography'
+for i in range(41, 61):
+    talent_category_astronomy_outcomes[i] = 'Astrophysics'
+for i in range(61, 81):
+    talent_category_astronomy_outcomes[i] = 'Radio Astronomy'
+for i in range(81, 101):
+    talent_category_astronomy_outcomes[i] = 'Stellar Cartography'
+
+#Generating Talent Category (Biology)
+talent_category_biology_outcomes = {}
+for i in range(1, 6):
+    talent_category_biology_outcomes[i] = 'Anatomy'
+for i in range(6, 11):
+    talent_category_biology_outcomes[i] = 'Animal Behavior'
+for i in range(11, 16):
+    talent_category_biology_outcomes[i] = 'Bio-Physics'
+for i in range(16, 22):
+    talent_category_biology_outcomes[i] = 'Biotechnology'
+for i in range(22, 27):
+    talent_category_biology_outcomes[i] = 'Botany'
+for i in range(27, 32):
+    talent_category_biology_outcomes[i] = 'Ecology'
+for i in range(32, 38):
+    talent_category_biology_outcomes[i] = 'Genetics'
+for i in range(38, 43):
+    talent_category_biology_outcomes[i] = 'Immunology'
+for i in range(43, 49):
+    talent_category_biology_outcomes[i] = 'Marine Biology'
+for i in range(49, 55):
+    talent_category_biology_outcomes[i] = 'Micro-Biology'
+for i in range(55, 62):
+    talent_category_biology_outcomes[i] = 'Neurosciences'
+for i in range(62, 68):
+    talent_category_biology_outcomes[i] = 'Parasitology'
+for i in range(68, 74):
+    talent_category_biology_outcomes[i] = 'Pharmacology'
+for i in range(74, 80):
+    talent_category_biology_outcomes[i] = 'Phenology'
+for i in range(80, 86):
+    talent_category_biology_outcomes[i] = 'Physiology'
+for i in range(86, 91):
+    talent_category_biology_outcomes[i] = 'Psychobiology'
+for i in range(91, 96):
+    talent_category_biology_outcomes[i] = 'Radiobiology'
+for i in range(96, 101):
+    talent_category_biology_outcomes[i] = 'Zoology'
+
+#Generating Talent Category (Chemistry)
+talent_category_chemistry_outcomes = {}
+for i in range(1, 12):
+    talent_category_chemistry_outcomes[i] = 'Alchemy'
+for i in range(12, 25):
+    talent_category_chemistry_outcomes[i] = 'Chemical and Biological Weapons'
+for i in range(25, 38):
+    talent_category_chemistry_outcomes[i] = 'Chemical Engineering'
+for i in range(38, 51):
+    talent_category_chemistry_outcomes[i] = 'Electrochemistry'
+for i in range(51, 65):
+    talent_category_chemistry_outcomes[i] = 'Organic Chemistry'
+for i in range(65, 78):
+    talent_category_chemistry_outcomes[i] = 'Polymers'
+for i in range(78, 89):
+    talent_category_chemistry_outcomes[i] = 'Sonochemistry'
+for i in range(89, 101):
+    talent_category_chemistry_outcomes[i] = 'Spectroscopy'
+
+#Generating Talent Category (Crime and Law)
+talent_category_crime_and_law_outcomes = {}
+for i in range(1, 5):
+    talent_category_crime_and_law_outcomes[i] = 'Ballistics'
+for i in range(5, 8):
+    talent_category_crime_and_law_outcomes[i] = 'Camoflage'
+for i in range(8, 11):
+    talent_category_crime_and_law_outcomes[i] = 'Counterfeit Recognition'
+for i in range(11, 13):
+    talent_category_crime_and_law_outcomes[i] = 'Clue Analysis'
+for i in range(13, 17):
+    talent_category_crime_and_law_outcomes[i] = 'Criminology'
+for i in range(17, 23):
+    talent_category_crime_and_law_outcomes[i] = 'Demolitions'
+for i in range(23, 30):
+    talent_category_crime_and_law_outcomes[i] = 'Detective/Espionage'
+for i in range(30, 33):
+    talent_category_crime_and_law_outcomes[i] = 'Disguise'
+for i in range(33, 38):
+    talent_category_crime_and_law_outcomes[i] = 'Forensics'
+for i in range(38, 43):
+    talent_category_crime_and_law_outcomes[i] = 'Forgery'
+for i in range(43, 45):
+    talent_category_crime_and_law_outcomes[i] = 'Intimidation'
+for i in range(45, 48):
+    talent_category_crime_and_law_outcomes[i] = 'Interrogation'
+for i in range(48, 56):
+    talent_category_crime_and_law_outcomes[i] = 'Law'
+for i in range(56, 65):
+    talent_category_crime_and_law_outcomes[i] = 'Law Enforcement'
+for i in range(65, 71):
+    talent_category_crime_and_law_outcomes[i] = 'Military'
+for i in range(71, 78):
+    talent_category_crime_and_law_outcomes[i] = 'Negotiations'
+for i in range(78, 84):
+    talent_category_crime_and_law_outcomes[i] = 'Pollice Procedure'
+for i in range(84, 89):
+    talent_category_crime_and_law_outcomes[i] = 'Pick Pocket'
+for i in range(89, 93):
+    talent_category_crime_and_law_outcomes[i] = 'Security'
+for i in range(93, 97):
+    talent_category_crime_and_law_outcomes[i] = 'Stealth'
+for i in range(97, 101):
+    talent_category_crime_and_law_outcomes[i] = 'Tracking'
+
+#Generating Talent Category (Cognitive Sciences and Humanities)
+talent_category_cognitive_sciences_outcomes = {}
+for i in range(1, 14):
+    talent_category_cognitive_sciences_outcomes[i] = 'Anthropology'
+for i in range(14, 22):
+    talent_category_cognitive_sciences_outcomes[i] = 'Archaeology'
+for i in range(22, 30):
+    talent_category_cognitive_sciences_outcomes[i] = 'Cartography'
+for i in range(30, 40):
+    talent_category_cognitive_sciences_outcomes[i] = 'History'
+for i in range(40, 53):
+    talent_category_cognitive_sciences_outcomes[i] = 'Philology (linguistics)'
+for i in range(53, 67):
+    talent_category_cognitive_sciences_outcomes[i] = 'Music Cognition'
+for i in range(67, 81):
+    talent_category_cognitive_sciences_outcomes[i] = 'Philosophy'
+for i in range(81, 101):
+    talent_category_cognitive_sciences_outcomes[i] = 'Psychology'
+
+#Generating Talent Category (Computer Science)
+talent_category_computer_science_outcomes = {}
+for i in range(1, 14):
+    talent_category_computer_science_outcomes[i] = 'Architecture'
+for i in range(14, 30):
+    talent_category_computer_science_outcomes[i] = 'Artificial Intelligence'
+for i in range(30, 46):
+    talent_category_computer_science_outcomes[i] = 'Computer Engineering'
+for i in range(46, 52):
+    talent_category_computer_science_outcomes[i] = 'Electronic Counter Measures'
+for i in range(52, 59):
+    talent_category_computer_science_outcomes[i] = 'Graphics'
+for i in range(59, 76):
+    talent_category_computer_science_outcomes[i] = 'Security and Encryption'
+for i in range(76, 90):
+    talent_category_computer_science_outcomes[i] = 'Programming'
+for i in range(90, 101):
+    talent_category_computer_science_outcomes[i] = 'Virtual Reality'
+
+#Generating Talent Category (Earth Science)
+talent_category_earth_science_outcomes = {}
+for i in range(1, 12):
+    talent_category_earth_science_outcomes[i] = 'Agriculture'
+for i in range(12, 19):
+    talent_category_earth_science_outcomes[i] = 'Ecology'
+for i in range(19, 26):
+    talent_category_earth_science_outcomes[i] = 'Geography'
+for i in range(26, 39):
+    talent_category_earth_science_outcomes[i] = 'Geology'
+for i in range(39, 51):
+    talent_category_earth_science_outcomes[i] = 'Hydrology'
+for i in range(51, 65):
+    talent_category_earth_science_outcomes[i] = 'Meterology'
+for i in range(65, 76):
+    talent_category_earth_science_outcomes[i] = 'Metallurgy'
+for i in range(76, 91):
+    talent_category_earth_science_outcomes[i] = 'Oceanography'
+for i in range(91, 101):
+    talent_category_earth_science_outcomes[i] = 'Seismology'
+
+#Generating Talent Category (Engineering)
+talent_category_engineering_outcomes = {}
+for i in range(1, 7):
+    talent_category_engineering_outcomes[i] = 'Aviation and Aeronautics Engineering'
+for i in range(7, 12):
+    talent_category_engineering_outcomes[i] = 'Astronautic Engineering' 
+for i in range(12, 17):
+    talent_category_engineering_outcomes[i] = 'Automotive Engineering'
+for i in range(17, 20):
+    talent_category_engineering_outcomes[i] = 'Battlesuit Design'
+for i in range(20, 22):
+    talent_category_engineering_outcomes[i] = 'Civil Engineering'
+for i in range(22, 26):
+    talent_category_engineering_outcomes[i] = 'Cybernetics/Bionics'
+for i in range(26, 29):
+    talent_category_engineering_outcomes[i] = 'Demolitions'
+for i in range(29, 32):
+    talent_category_engineering_outcomes[i] = 'Gadgetry'
+for i in range(32, 35):
+    talent_category_engineering_outcomes[i] = 'Identify Gadgets' 
+for i in range(35, 39):
+    talent_category_engineering_outcomes[i] = 'Electrical Engineering'
+for i in range(39, 45):
+    talent_category_engineering_outcomes[i] = 'Locksmith'
+for i in range(45, 51):
+    talent_category_engineering_outcomes[i] = 'Marine Engineering'
+for i in range(51, 58):
+    talent_category_engineering_outcomes[i] = 'Mechanical Engineering'
+for i in range(58, 64):
+    talent_category_engineering_outcomes[i] = 'Military Engineering'
+for i in range(64, 70):
+    talent_category_engineering_outcomes[i] = 'Nuclear Engineering'
+for i in range(70, 77):
+    talent_category_engineering_outcomes[i] = 'Repair/Tinkering' 
+for i in range(77, 83):
+    talent_category_engineering_outcomes[i] = 'Robotics'
+for i in range(83, 89):
+    talent_category_engineering_outcomes[i] = 'Structural Engineering'
+for i in range(89, 96):
+    talent_category_engineering_outcomes[i] = 'Weapons Engineering'
+for i in range(96, 101):
+    talent_category_engineering_outcomes[i] = 'Weapons Tinkering'
+
+#Generating Talent Category (Fighting Skills)
+talent_category_fighting_skills_outcomes = {}
+for i in range(1, 4):
+    talent_category_fighting_skills_outcomes[i] = 'Aerial Combat'
+for i in range(4, 8):
+    talent_category_fighting_skills_outcomes[i] = 'Underwater Combat'
+for i in range(8, 12):
+    talent_category_fighting_skills_outcomes[i] = 'Climbing'
+for i in range(12, 16):
+    talent_category_fighting_skills_outcomes[i] = 'Dodging'
+for i in range(16, 20):
+    talent_category_fighting_skills_outcomes[i] = 'Gymnastics'
+for i in range(20, 24):
+    talent_category_fighting_skills_outcomes[i] = 'Martial Arts A'
+for i in range(24, 28):
+    talent_category_fighting_skills_outcomes[i] = 'Martial Arts B'
+for i in range(28, 32):
+    talent_category_fighting_skills_outcomes[i] = 'Martial Arts C'
+for i in range(32, 35):
+    talent_category_fighting_skills_outcomes[i] = 'Martial Arts D'
+for i in range(35, 39):
+    talent_category_fighting_skills_outcomes[i] = 'Martial Arts E'
+for i in range(39, 43):
+    talent_category_fighting_skills_outcomes[i] = 'Martial Arts F'
+for i in range(43, 46):
+    talent_category_fighting_skills_outcomes[i] = 'Martial Arts G'
+for i in range(46, 50):
+    talent_category_fighting_skills_outcomes[i] = 'Martial Arts H'
+for i in range(50, 54):
+    talent_category_fighting_skills_outcomes[i] = 'Martial Arts I'
+for i in range(54, 58):
+    talent_category_fighting_skills_outcomes[i] = 'Martial Arts J'
+for i in range(58, 62):
+    talent_category_fighting_skills_outcomes[i] = 'Martial Arts K'
+for i in range(62, 66):
+    talent_category_fighting_skills_outcomes[i] = 'Martial Arts L'
+for i in range(66, 70):
+    talent_category_fighting_skills_outcomes[i] = 'Martial Arts M'
+for i in range(70, 74):
+    talent_category_fighting_skills_outcomes[i] = 'Martial Arts N'
+for i in range(74, 78):
+    talent_category_fighting_skills_outcomes[i] = 'Martial Arts O'
+for i in range(78, 82):
+    talent_category_fighting_skills_outcomes[i] = 'Martial Arts P'
+for i in range(82, 86):
+    talent_category_fighting_skills_outcomes[i] = 'Martial Arts Q'
+for i in range(86, 90):
+    talent_category_fighting_skills_outcomes[i] = 'Martial Arts R'
+for i in range(90, 93):
+    talent_category_fighting_skills_outcomes[i] = 'Quick-Striking'
+for i in range(93, 95):
+    talent_category_fighting_skills_outcomes[i] = 'Wrestling'
+for i in range(95, 97):
+    talent_category_fighting_skills_outcomes[i] = 'Thrown Objects'
+for i in range(97, 99):
+    talent_category_fighting_skills_outcomes[i] = 'Acrobatics'
+for i in range(99, 101):
+    talent_category_fighting_skills_outcomes[i] = 'Tumbling'
+   
+#Generating Talent Category (Medicine)
+talent_category_medicine_outcomes = {}
+for i in range(1, 6):
+    talent_category_medicine_outcomes[i] = 'Acupuncture'
+for i in range(6, 11):
+    talent_category_medicine_outcomes[i] = 'Cardiology'
+for i in range(11, 16):
+    talent_category_medicine_outcomes[i] = 'Chiropractic'
+for i in range(16, 21):
+    talent_category_medicine_outcomes[i] = 'Dentistry'
+for i in range(21, 26):
+    talent_category_medicine_outcomes[i] = 'Emergency Medicine'
+for i in range(26, 34):
+    talent_category_medicine_outcomes[i] = 'First Aid'
+for i in range(34, 40):
+    talent_category_medicine_outcomes[i] = 'Geriatrics'
+for i in range(40, 45):
+    talent_category_medicine_outcomes[i] = 'Obstetrics and Gynecology'
+for i in range(45, 50):
+    talent_category_medicine_outcomes[i] = 'Oncology'
+for i in range(50, 55):
+    talent_category_medicine_outcomes[i] = 'Pathology'
+for i in range(55, 61):
+    talent_category_medicine_outcomes[i] = 'Pediatrics'
+for i in range(61, 66):
+    talent_category_medicine_outcomes[i] = 'Pharmacology'
+for i in range(66, 71):
+    talent_category_medicine_outcomes[i] = 'Physical Therapy'
+for i in range(71, 76):
+    talent_category_medicine_outcomes[i] = 'Plastic Surgery'
+for i in range(76, 82):
+    talent_category_medicine_outcomes[i] = 'Psychiatry'
+for i in range(82, 88):
+    talent_category_medicine_outcomes[i] = 'Radiology'
+for i in range(88, 94):
+    talent_category_medicine_outcomes[i] = 'Sports Medicine'
+for i in range(94, 99):
+    talent_category_medicine_outcomes[i] = 'Surgery'
+for i in range(99, 101):
+    talent_category_medicine_outcomes[i] = 'Veterinary'
+
+#Generating Talent Category (Mystic and Mental)
+talent_category_mystic_and_mental_outcomes = {}
+for i in range(1, 9):
+    talent_category_mystic_and_mental_outcomes[i] = 'Bibliophile'
+for i in range(9, 17):
+    talent_category_mystic_and_mental_outcomes[i] = 'Demonologist'
+for i in range(17, 25):
+    talent_category_mystic_and_mental_outcomes[i] = 'Mesmerism and Hypnosis'
+for i in range(25, 32):
+    talent_category_mystic_and_mental_outcomes[i] = 'Mystic Background'
+for i in range(33, 41):
+    talent_category_mystic_and_mental_outcomes[i] = 'Occult Lore'
+for i in range(41, 46):
+    talent_category_mystic_and_mental_outcomes[i] = 'Resist Domination'
+for i in range(46, 51):
+    talent_category_mystic_and_mental_outcomes[i] = 'Ritual Magics'
+for i in range(51, 57):
+    talent_category_mystic_and_mental_outcomes[i] = 'Runesmith'
+for i in range(57, 66):
+    talent_category_mystic_and_mental_outcomes[i] = 'Scholar of Antiquities'
+for i in range(66, 75):
+    talent_category_mystic_and_mental_outcomes[i] = 'Sleight of Hand'
+for i in range(75, 84):
+    talent_category_mystic_and_mental_outcomes[i] = 'Theogony'
+for i in range(84, 93):
+    talent_category_mystic_and_mental_outcomes[i] = 'Trance'
+for i in range(93, 101):
+    talent_category_mystic_and_mental_outcomes[i] = 'Zoologist of Magic'
+
+#Generating Talent Category (Other)
+talent_category_other_outcomes = {}
+for i in range(1, 6):
+    talent_category_other_outcomes[i] = 'Accounting'
+for i in range(6, 10):
+    talent_category_other_outcomes[i] = 'Actor'  
+for i in range(10, 15):
+    talent_category_other_outcomes[i] = 'Animal Training'
+for i in range(15, 20):
+    talent_category_other_outcomes[i] = 'Artist'
+for i in range(20, 26):
+    talent_category_other_outcomes[i] = 'Business/Finance'
+for i in range(26, 31):
+    talent_category_other_outcomes[i] = 'Escape Artist'
+for i in range(31, 33):
+    talent_category_other_outcomes[i] = 'Heir To A Fortune'
+for i in range(33, 37):
+    talent_category_other_outcomes[i] = 'Instructor'
+for i in range(37, 42):
+    talent_category_other_outcomes[i] = 'Journalism'
+for i in range(42, 47):
+    talent_category_other_outcomes[i] = 'Leadership'
+for i in range(47, 53):
+    talent_category_other_outcomes[i] = 'Performer'
+for i in range(53, 58):
+    talent_category_other_outcomes[i] = 'Persuasion'
+for i in range(58, 64):
+    talent_category_other_outcomes[i] = 'Pick Pocketing'
+for i in range(64, 70):
+    talent_category_other_outcomes[i] = 'Politics'
+for i in range(70, 77):
+    talent_category_other_outcomes[i] = 'Seduction'
+for i in range(77, 83):
+    talent_category_other_outcomes[i] = 'Sewing and Tailoring'
+for i in range(83, 90):
+    talent_category_other_outcomes[i] = 'Streetsmart'
+for i in range(90, 94):
+    talent_category_other_outcomes[i] = 'Student'
+for i in range(94, 97):
+    talent_category_other_outcomes[i] = 'Thief'
+for i in range(97, 100):
+    talent_category_other_outcomes[i] = 'Trivia'
+for i in range(100, 101):
+    talent_category_other_outcomes[i] = 'Writer'
+
+#Generating Talent Category (Physics)
+talent_category_physics_outcomes = {}
+for i in range(1, 16):
+    talent_category_physics_outcomes[i] = 'Acoustics'
+for i in range(16, 33):
+    talent_category_physics_outcomes[i] = 'Atomic Physics'
+for i in range(33, 49):
+    talent_category_physics_outcomes[i] = 'Cryogenics'
+for i in range(49, 67):
+    talent_category_physics_outcomes[i] = 'Energy and Particle Physics'
+for i in range(67, 84):
+    talent_category_physics_outcomes[i] = 'Mathematics'
+for i in range(84, 101):
+    talent_category_physics_outcomes[i] = 'Quantum Physics'
+    
+#Generating Talent Category (Piloting)
+talent_category_piloting_outcomes = {}
+for i in range(1, 16):
+    talent_category_piloting_outcomes[i] = 'Airplane Pilot'
+for i in range(16, 28):
+    talent_category_piloting_outcomes[i] = 'Automobile Specialist'
+for i in range(28, 39):
+    talent_category_piloting_outcomes[i] = 'Boat Pilot'
+for i in range(39, 51):
+    talent_category_piloting_outcomes[i] = 'Helicopter'
+for i in range(51, 64):
+    talent_category_piloting_outcomes[i] = 'Military Vehicle Specialist'
+for i in range(64, 78):
+    talent_category_piloting_outcomes[i] = 'Motorcycle'
+for i in range(78, 90):
+    talent_category_piloting_outcomes[i] = 'Spacecraft'
+for i in range(90, 101):
+    talent_category_piloting_outcomes[i] = 'Submersible Vehicle'
+    
+#Generating Talent Category (Weapons)
+talent_category_weapons_outcomes = {}
+for i in range(1, 7):
+    talent_category_weapons_outcomes[i] = 'Ancient Weapons'
+for i in range(7, 13):
+    talent_category_weapons_outcomes[i] = 'Battlesuit Operation'
+for i in range(13, 21):
+    talent_category_weapons_outcomes[i] = 'Blunt Weapons'
+for i in range(21, 28):
+    talent_category_weapons_outcomes[i] = 'Bows'
+for i in range(28, 35):
+    talent_category_weapons_outcomes[i] = 'Energy Weapons'
+for i in range(35, 43):
+    talent_category_weapons_outcomes[i] = 'Guns'
+for i in range(43, 50):
+    talent_category_weapons_outcomes[i] = 'Marksmen'
+for i in range(50, 57):
+    talent_category_weapons_outcomes[i] = 'Oriental Weapons'
+for i in range(57, 64):
+    talent_category_weapons_outcomes[i] = 'Heavy Weapons'
+for i in range(64, 71):
+    talent_category_weapons_outcomes[i] = 'Fencing'
+for i in range(71, 77):
+    talent_category_weapons_outcomes[i] = 'Paired Weapons'
+for i in range(77, 84):
+    talent_category_weapons_outcomes[i] = 'Sharp Weapons'
+for i in range(84, 91):
+    talent_category_weapons_outcomes[i] = 'Thrown Weapons'
+for i in range(91, 97):
+    talent_category_weapons_outcomes[i] = 'Weapons Master'
+for i in range(97, 101):
+    talent_category_weapons_outcomes[i] = 'Weapons Specialist'
+               
 def get_physical_form(roll):
     if roll not in physical_form_outcomes.keys():
         raise ValueError('Unsupported roll: {}'.format(roll))
@@ -1095,6 +1602,96 @@ def get_power_category_travel(roll):
         raise ValueError('Unsupported roll: {}'.format(roll))
     return power_category_travel_outcomes[roll]
 
+def get_talent_category(roll):
+    if roll not in talent_category_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return talent_category_outcomes[roll]
+
+def get_talent_category_alternative_sciences(roll):
+    if roll not in talent_category_alternative_sciences_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return talent_category_alternative_sciences_outcomes[roll]
+
+def get_talent_category_astronomy(roll):
+    if roll not in talent_category_astronomy_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return talent_category_astronomy_outcomes[roll]
+
+def get_talent_category_biology(roll):
+    if roll not in talent_category_biology_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return talent_category_biology_outcomes[roll]
+
+def get_talent_category_chemistry(roll):
+    if roll not in talent_category_chemistry_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return talent_category_chemistry_outcomes[roll]
+
+def get_talent_category_crime_and_law(roll):
+    if roll not in talent_category_crime_and_law_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return talent_category_crime_and_law_outcomes[roll]
+
+def get_talent_category_cognitive_sciences(roll):
+    if roll not in talent_category_cognitive_sciences_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return talent_category_cognitive_sciences_outcomes[roll]
+
+def get_talent_category_computer_science(roll):
+    if roll not in talent_category_computer_science_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return talent_category_computer_science_outcomes[roll]
+
+def get_talent_category_earth_science(roll):
+    if roll not in talent_category_earth_science_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return talent_category_earth_science_outcomes[roll]
+
+def get_talent_category_engineering(roll):
+    if roll not in talent_category_engineering_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return talent_category_engineering_outcomes[roll]
+
+def get_talent_category_fighting_skills(roll):
+    if roll not in talent_category_fighting_skills_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return talent_category_fighting_skills_outcomes[roll]
+
+def get_talent_category_medicine(roll):
+    if roll not in talent_category_medicine_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return talent_category_medicine_outcomes[roll]
+
+def get_talent_category_mystic_and_mental(roll):
+    if roll not in talent_category_mystic_and_mental_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return talent_category_mystic_and_mental_outcomes[roll]
+
+def get_talent_category_other(roll):
+    if roll not in talent_category_other_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return talent_category_other_outcomes[roll]
+
+def get_talent_category_physics(roll):
+    if roll not in talent_category_physics_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return talent_category_physics_outcomes[roll]
+
+def get_talent_category_piloting(roll):
+    if roll not in talent_category_piloting_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return talent_category_piloting_outcomes[roll]
+
+def get_talent_category_weapons(roll):
+    if roll not in talent_category_weapons_outcomes.keys():
+        raise ValueError('Unsupported roll: {}'.format(roll))
+    return talent_category_weapons_outcomes[roll]
+
+
+
+
+
+
 def print_stats():
     print('')
     print('Physical Form: ' + (char_physical_form))
@@ -1120,19 +1717,15 @@ def print_stats():
     print('Resources: ' + char_resources)
     print('Popularity: ' + char_popularity)
     print('')
-    print('Special Abilities:')
-    print('------------------')
-    print('Powers: ' + str(char_powers) + ' Powers')
-    print('Talents: ' + str(char_talents) + ' Talents')
-    print('Contacts: ' + str(char_contacts) + ' Contacts')
-    print('')
-    print('Powers:')
+    print('Powers: ' + str(char_powers))
     print('-------')
     col_width = max(len(word) for row in char_powers_merged for word in row) + 2  # padding
     for row in char_powers_merged:
         print("".join(word.ljust(col_width) for word in row))
-    #print(*character_powers, sep = "\n")
     print('')
+    print('Talents: ' + str(char_talents))
+    print('--------')
+    print(*character_talents, sep = "\n")
     if len(character_bonuses) > 0:
         print('')
         print('Character Bonuses:')
@@ -1483,7 +2076,7 @@ for counter in range(1,2):
     else:
         print('Debug')
 
-#Popularilty counter
+#Popularity counter
 for counter in range(1,2):
     if char_physical_form == 'Normal Human':
         faserip_roll = random.randint(1, 100)
@@ -2156,7 +2749,112 @@ elif char_physical_form == 'Changeling':
         character_bonuses.append('Changeling Forms: 4')
     else:
         character_bonuses.append('Changeling Forms: 5')
-    
+
+#Generating Talents
+talent_loop_count = 1
+talents_roll = random.randint(1, 100)
+char_talents = get_talents(talents_roll)
+while talent_loop_count <= char_talents:
+    talent_category_roll = random.randint(1, 100)
+    talent_category = get_talent_category(talent_category_roll)
+    if talent_category == 'Alternative Sciences':
+        talent_roll = random.randint(1, 100)
+        talent = get_talent_category_alternative_sciences(talent_roll)
+        if talent not in character_powers:
+            character_talents.append(talent)
+            talent_loop_count += 1
+    elif talent_category == 'Astronomy':
+        talent_roll = random.randint(1, 100)
+        talent = get_talent_category_astronomy(talent_roll)
+        if talent not in character_powers:
+            character_talents.append(talent)
+            talent_loop_count += 1
+    elif talent_category == 'Biology':
+        talent_roll = random.randint(1, 100)
+        talent = get_talent_category_biology(talent_roll)
+        if talent not in character_powers:
+            character_talents.append(talent)
+            talent_loop_count += 1
+    elif talent_category == 'Chemistry':
+        talent_roll = random.randint(1, 100)
+        talent = get_talent_category_chemistry(talent_roll)
+        if talent not in character_powers:
+            character_talents.append(talent)
+            talent_loop_count += 1
+    elif talent_category == 'Crime and Law':
+        talent_roll = random.randint(1, 100)
+        talent = get_talent_category_crime_and_law(talent_roll)
+        if talent not in character_powers:
+            character_talents.append(talent)
+            talent_loop_count += 1
+    elif talent_category == 'Cognitive Sciences and Humanities':
+        talent_roll = random.randint(1, 100)
+        talent = get_talent_category_cognitive_sciences(talent_roll)
+        if talent not in character_powers:
+            character_talents.append(talent)
+            talent_loop_count += 1
+    elif talent_category == 'Computer Science':
+        talent_roll = random.randint(1, 100)
+        talent = get_talent_category_computer_science(talent_roll)
+        if talent not in character_powers:
+            character_talents.append(talent)
+            talent_loop_count += 1
+    elif talent_category == 'Earth Science':
+        talent_roll = random.randint(1, 100)
+        talent = get_talent_category_earth_science(talent_roll)
+        if talent not in character_powers:
+            character_talents.append(talent)
+            talent_loop_count += 1
+    elif talent_category == 'Engineering':
+        talent_roll = random.randint(1, 100)
+        talent = get_talent_category_engineering(talent_roll)
+        if talent not in character_powers:
+            character_talents.append(talent)
+            talent_loop_count += 1
+    elif talent_category == 'Fighting Skills':
+        talent_roll = random.randint(1, 100)
+        talent = get_talent_category_fighting_skills(talent_roll)
+        if talent not in character_powers:
+            character_talents.append(talent)
+            talent_loop_count += 1
+    elif talent_category == 'Medicine':
+        talent_roll = random.randint(1, 100)
+        talent = get_talent_category_medicine(talent_roll)
+        if talent not in character_powers:
+            character_talents.append(talent)
+            talent_loop_count += 1
+    elif talent_category == 'Mystic and Mental':
+        talent_roll = random.randint(1, 100)
+        talent = get_talent_category_mystic_and_mental(talent_roll)
+        if talent not in character_powers:
+            character_talents.append(talent)
+            talent_loop_count += 1
+    elif talent_category == 'Other':
+        talent_roll = random.randint(1, 100)
+        talent = get_talent_category_other(talent_roll)
+        if talent not in character_powers:
+            character_talents.append(talent)
+            talent_loop_count += 1
+    elif talent_category == 'Physics':
+        talent_roll = random.randint(1, 100)
+        talent = get_talent_category_physics(talent_roll)
+        if talent not in character_powers:
+            character_talents.append(talent)
+            talent_loop_count += 1
+    elif talent_category == 'Piloting':
+        talent_roll = random.randint(1, 100)
+        talent = get_talent_category_piloting(talent_roll)
+        if talent not in character_powers:
+            character_talents.append(talent)
+            talent_loop_count += 1
+    elif talent_category == 'Weapons':
+        talent_roll = random.randint(1, 100)
+        talent = get_talent_category_weapons(talent_roll)
+        if talent not in character_powers:
+            character_talents.append(talent)
+            talent_loop_count += 1
+
+  
 #Show and Tell Time
 print('Begin the Character Creation Process!')
 print('Generating Origins...')
