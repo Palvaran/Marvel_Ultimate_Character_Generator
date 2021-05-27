@@ -1687,11 +1687,6 @@ def get_talent_category_weapons(roll):
         raise ValueError('Unsupported roll: {}'.format(roll))
     return talent_category_weapons_outcomes[roll]
 
-
-
-
-
-
 def print_stats():
     print('')
     print('Physical Form: ' + (char_physical_form))
@@ -1726,6 +1721,9 @@ def print_stats():
     print('Talents: ' + str(char_talents))
     print('--------')
     print(*character_talents, sep = "\n")
+    print('')
+    print('Contacts: ' + str(char_contacts))
+    print('')
     if len(character_bonuses) > 0:
         print('')
         print('Character Bonuses:')
