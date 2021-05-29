@@ -5,7 +5,7 @@
 
 import random, time
 
-initial_ranks = ['Feeble', 'Poor', 'Typical', 'Good', 'Excellent', 'Remarkable', 'Incredible', 'Amazing', 'Monstrous']
+initial_ranks = ['Feeble', 'Poor', 'Typical', 'Good', 'Excellent', 'Remarkable', 'Incredible', 'Amazing', 'Monstrous', 'Unearthly']
 char_stats = []
 char_power_class = []
 power = []
@@ -1759,7 +1759,6 @@ initial_rank_numbers = {
 
 #Generating Physical Form, Power Origin, Weaknesses, Resources, and Popularity
 physical_form_roll = random.randint(1, 100)
-#physical_form_roll =         #For Testing enter Physical Form
 char_physical_form = get_physical_form(physical_form_roll)
 origin_roll = random.randint(1, 100)
 char_origin = get_origin(origin_roll)
