@@ -2497,7 +2497,9 @@ elif char_physical_form == 'Surgical Composite':
     char_resources = 'Poor'
     char_popularity = 'Zero'
     char_contacts = 1
-    character_bonuses.append('Healing Rate: Twice Normal Human')
+    character_powers.append('Regeneration')
+    character_power_levels.append('Feeble')
+    char_powers_merged = list(zip(character_powers, character_power_levels))
     character_weaknesses.append('Resistance: Mental Domination -1CS')
 elif char_physical_form == 'Modified Human - Organic':
     character_bonuses.append('Healing Rate: Twice Normal Human')
